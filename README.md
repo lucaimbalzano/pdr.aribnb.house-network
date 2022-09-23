@@ -1,13 +1,12 @@
-# pdr.airbnb.house-network <img src="https://user-images.githubusercontent.com/45575898/184987964-64477382-1df1-4512-9b77-9d6ec0eef470.jpg" width="60" height="60" />
-<img src="https://user-images.githubusercontent.com/45575898/192070406-645310f5-c157-4beb-a964-cfc94a118d62.png" width="60" height="60" />
+# pdr.airbnb.house-network <img src="https://user-images.githubusercontent.com/45575898/184987964-64477382-1df1-4512-9b77-9d6ec0eef470.jpg" width="60" height="60" /><img src="https://user-images.githubusercontent.com/45575898/192070406-645310f5-c157-4beb-a964-cfc94a118d62.png" width="60" height="60" />
 
 
 webscraper-engine module for real-estate on subito.it
 
 clone repository and move in:
 ```
-$ git clone https://github.com/lucaimbalzano/subito.house-network.git
-$ cd subito.house-network
+$ git clone https://github.com/lucaimbalzano/pdr.airbnb.house-network.git
+$ cd pdr.airbnb.house-network
 ```
 
 create virtual environment
