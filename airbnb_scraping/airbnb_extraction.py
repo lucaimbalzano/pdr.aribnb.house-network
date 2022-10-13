@@ -1,4 +1,3 @@
-import bs4
 import requests
 import re
 from bs4 import BeautifulSoup
@@ -15,52 +14,34 @@ def get_price_by_dirty_format(price_str):
 
 
 
-
-
-
-
-
 def core_extraction():
-    # soup = bs4.BeautifulSoup(link, 'html.parser')
-    # print(soup.prettify())
     soup = BeautifulSoup(requests.get(link).content, 'html.parser')
-    # print(soup.prettify())
-
     soup.findAll('div', 'c61fd4t')
     soup.find_all('div', 'gh7uyir')
     html_list = soup.find_all('div', 'gh7uyir')
 
-   # all elements card
-   # print(html_list[0].get_text())
-
     all_cards = html_list[0].find_all('div', 'c4mnd7m')
-    print("#### CARD ####")
-    # print("cards tag: "+all_cards[0])
-
-
-    #TODO iterate cover url card
-    cover_card = all_cards[0].find('source').get('srcset')
-    print("url cover card: "+str(cover_card))
-
-    # TODO iterate title general/detailed
-    title_card_general = all_cards[0].find('div', 't1jojoys').get_text()
-    print("title card general: "+str(title_card_general))
-    title_card_detail = all_cards[0].find('div', 'n1v28t5c').get_text()
-    print("title card detail: " + str(title_card_detail))
-
-    #TODO iterate urls
-    all_meta = all_cards[0].find_all('meta')
-    urls = soup.find(itemprop="url").get("content")
-    print("url: "+urls if urls else "url: No meta url given")
-
-    #TODO iterate Kind of HOST
-    is_superHost = all_cards[0].find_all('div', 't1mwk1n0')
-    print(is_superHost[0].get_text() if is_superHost.__len__() > 0  else "Not SuperHost")
-
-    date_availability = all_cards[0].find_all('div', 'f15liw5s')
-    print("date: " + str(date_availability[3].get_text()))
-
-    price = all_cards[0].find_all('span','a8jt5op')
-    print("price: "+str(price[0].get_text()[0:4]))
-    # print(get_price_by_dirty_format(price[0].get_text()))
-    print("#### END CARD ####")
+    for i in range(len(all_cards)):
+        print("#### CARD ####")
+        #URL-IMAGE-COVER-CARD
+        cover_card = all_cards[i].find('source').get('srcset')
+        print("url cover card: "+str(cover_card))
+        #TITLE
+        title_card_general = all_cards[i].find('div', 't1jojoys').get_text()
+        print("title card general: "+str(title_card_general))
+        title_card_detail = all_cards[i].find('div', 'nquyp1l').get_text()
+        print("title card detail: " + str(title_card_detail))
+        #URL
+        all_meta = all_cards[i].find_all('meta')
+        urls = soup.find(itemprop="url").get("content")
+        print("url: "+urls if urls else "url: No meta url given")
+        #IS-SUPERHOST
+        is_superHost = all_cards[i].find_all('div', 't1mwk1n0')
+        print(is_superHost[0].get_text() if is_superHost.__len__() > 0  else "Not SuperHost")
+        #DATE-AVAILABILITY
+        date_availability = all_cards[i].find_all('div', 'f15liw5s')
+        print("date: " + str(date_availability[3].get_text()))
+        #PRICE
+        price = all_cards[i].find_all('span','a8jt5op')
+        print("price: "+str(price[0].get_text()[0:4]))
+        print("#### END CARD ####")

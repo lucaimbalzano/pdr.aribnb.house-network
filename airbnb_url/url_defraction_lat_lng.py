@@ -1,13 +1,21 @@
+from main import settings
+
 
 list_NWSE = []
 
-def moving_to_nord_calculation(list_whole,list_lat_lng):
-    ne_lat = float(list_lat_lng[0].split('=')[1])+0.00973053189324
-    ne_lng = float(list_lat_lng[1].split('=')[1])+0.0031328199521
-    sw_lat = float(list_lat_lng[2].split('=')[1])+0.00971727625327
-    sw_lng = float(list_lat_lng[3].split('=')[1])+0.003132819952099
+def moving_to_nord_calculation(url,list_lat_lng):
+    ne_lat = float(list_lat_lng[0].split('=')[1])+ settings.NORD_NE_LAT
+    ne_lng = float(list_lat_lng[1].split('=')[1])+ settings.NORD_NE_LNG
+    sw_lat = float(list_lat_lng[2].split('=')[1])+ settings.NORD_SW_LAT
+    sw_lng = float(list_lat_lng[3].split('=')[1])+ settings.NORD_SW_LNG
+    list_whole = url.split('search_type=user_map_move&')
     url_defined = list_whole[0] + 'ne_lat=' + str(ne_lat) + '&ne_lng=' + str(ne_lng) + '&sw_lat=' + str(sw_lat) + '&sw_lng=' + str(sw_lng)
     return url_defined;
+
+# def moving_map_nwse_calculation(url, list_lat_lng, settings.MOVINGTO_VALUES_NWSE, ..[] ):
+#      ne_lat = float(list_lat_lng[0].split('=')[1])+ settings.MOVINGTO_VALUES_NWSE
+
+#     return url_defined;
 
 def defraction_url_lat_lng(url):
     list_positions = url.split('search_type=user_map_move&')
@@ -16,7 +24,7 @@ def defraction_url_lat_lng(url):
     print(list_position_splitted[1].split('=')[1])
     print(list_position_splitted[2].split('=')[1])
     print(list_position_splitted[3].split('=')[1])
-
+    return list_position_splitted
 
 
 

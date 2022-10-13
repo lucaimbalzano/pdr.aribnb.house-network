@@ -14,10 +14,10 @@ create virtual environment
 ```
 $ python3 -m venv env
 $ .\env\Scripts\activate 
+exit with keyword: deactivate
 ```
 or 
 ```
-(if you haven't pipenv)
 $ pipenv --python 3.10 install --dev
 then:
 $ pipenv shell
@@ -26,9 +26,20 @@ $ pipenv shell
 
 install all dependencies:
 ```
-$ pip install wheel
 $ pip install -r requirements.txt
+or
+Python3:
+$ pip3 install -r requirements.txt
 ```
+
+run
+```
+$ python .\main.py
+or
+$ python3 .\main.py
+```
+
+
 
 
 ᵈᵉᵛᵉˡᵒᵖᵉᵈ ᵇʸ 𝙡𝙪𝙘𝙖𝙞𝙢𝙗𝙖𝙡𝙯𝙖𝙣𝙤@𝙜𝙢𝙖𝙞𝙡.𝙘𝙤𝙢
