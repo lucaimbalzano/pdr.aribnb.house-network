@@ -1,0 +1,115 @@
+
+
+
+https://www.airbnb.it
+/rooms
+/33828183
+?adults=1
+	&children=0
+	&infants=0
+	&check_in=2022-09-21
+	&check_out=2022-09-26
+	&federated_search_id=adf3b9a7-cf58-4a02-a982-1fc6d24275ed
+	&source_impression_id=p3_1663344569_guvInFonELukzR2F
+	
+	
+	
+	
+	
+	
+	
+[
+<img alt="Image 1"
+	aria-hidden="true" 
+	class="_6tbg2q" 
+	data-original-uri="https://a0.muscache.com/im/pictures/daee7164-a1eb-46d5-a40e-7f6397131ddc.jpg?im_w=720"
+	elementtiming="LCP-target" 
+	fetchpriority="high" 
+	id="FMP-target" 
+	loading="lazy" 
+	src="https://a0.muscache.com/im/pictures/daee7164-a1eb-46d5-a40e-7f6397131ddc.jpg?im_w=720" 
+	style="object-fit:cover;vertical-align:bottom"/>,
+<img alt="Image 1" 
+	aria-hidden="true" 
+	class="_6tbg2q" 
+	data-original-uri="https://a0.muscache.com/im/pictures/pro_photo_tool/Hosting-37177808-unapproved/original/99799717-7e5b-41e4-8604-3f2b12dee5af.JPEG?im_w=720" 
+	elementtiming="LCP-target"
+	fetchpriority="high" 
+	id="FMP-target" 
+	loading="lazy" 
+	src="https://a0.muscache.com/im/pictures/pro_photo_tool/Hosting-37177808-unapproved/original/99799717-7e5b-41e4-8604-3f2b12dee5af.JPEG?im_w=720" 
+	style="object-fit:cover;vertical-align:bottom"/>, 
+<img alt="Image 1" 
+	aria-hidden="true" 
+	class="_6tbg2q" 
+	data-original-uri="https://a0.muscache.com/im/pictures/a03ef199-c121-40a1-8198-324fcb0a396b.jpg?im_w=720" 
+	elementtiming="LCP-target" 
+	fetchpriority="high" 
+	id="FMP-target" 
+	loading="lazy" 
+	src="https://a0.muscache.com/im/pictures/a03ef199-c121-40a1-8198-324fcb0a396b.jpg?im_w=720" 
+	style="object-fit:cover;vertical-align:bottom"/>,
+<img alt="Image 1" 
+	aria-hidden="true" 
+	class="_6tbg2q" 
+	data-original-uri="https://a0.muscache.com/im/pictures/miso/Hosting-627512459088002470/original/4ef705f3-8879-49c6-a7e1-7325bfb0a40f.jpeg?im_w=720" elementtiming="LCP-target" fetchpriority="high" id="FMP-target" loading="lazy" src="https://a0.muscache.com/im/pictures/miso/Hosting-627512459088002470/original/4ef705f3-8879-49c6-a7e1-7325bfb0a40f.jpeg?im_w=720" style="object-fit:cover;vertical-align:bottom"/>, <img alt="Image 1" aria-hidden="true" class="_6tbg2q" data-original-uri="https://a0.muscache.com/im/pictures/miso/Hosting-52726264/original/2cc68510-2b9f-453f-9c34-ae672a305727.jpeg?im_w=720" elementtiming="LCP-target" fetchpriority="high" id="FMP-target" loading="lazy" src="https://a0.muscache.com/im/pictures/miso/Hosting-52726264/original/2cc68510-2b9f-453f-9c34-ae672a305727.jpeg?im_w=720" style="object-fit:cover;vertical-align:bottom"/>, <img alt="Image 1" aria-hidden="true" class="_6tbg2q" data-original-uri="https://a0.muscache.com/im/pictures/miso/Hosting-718756708791161317/original/5594ae43-ca1a-487c-934c-80415aea9a76.jpeg?im_w=720" elementtiming="LCP-target" fetchpriority="auto" id="FMP-target" loading="lazy" src="https://a0.muscache.com/im/pictures/miso/Hosting-718756708791161317/original/5594ae43-ca1a-487c-934c-80415aea9a76.jpeg?im_w=720" style="object-fit:cover;vertical-align:bottom"/>, <img alt="Image 1" aria-hidden="true" class="_6tbg2q" data-original-uri="https://a0.muscache.com/im/pictures/6c2a4549-e7f6-473c-a7a4-23d2410a135b.jpg?im_w=1200" elementtiming="LCP-target" fetchpriority="auto" id="FMP-target" loading="lazy" src="https://a0.muscache.com/im/pictures/6c2a4549-e7f6-473c-a7a4-23d2410a135b.jpg?im_w=720" style="object-fit:cover;vertical-align:bottom"/>, <img alt="Image 1" aria-hidden="true" class="_6tbg2q" data-original-uri="https://a0.muscache.com/im/pictures/0b5c4955-8739-4488-bfd4-cb489842ca10.jpg?im_w=720" elementtiming="LCP-target" fetchpriority="auto" id="FMP-target" loading="lazy" src="https://a0.muscache.com/im/pictures/0b5c4955-8739-4488-bfd4-cb489842ca10.jpg?im_w=720" style="object-fit:cover;vertical-align:bottom"/>, <img alt="Image 1" aria-hidden="true" class="_6tbg2q" data-original-uri="https://a0.muscache.com/im/pictures/2978dbe3-5f53-439b-bcb8-3f3fc820acb3.jpg?im_w=720" elementtiming="LCP-target" fetchpriority="auto" id="FMP-target" loading="lazy" src="https://a0.muscache.com/im/pictures/2978dbe3-5f53-439b-bcb8-3f3fc820acb3.jpg?im_w=720" style="object-fit:cover;vertical-align:bottom"/>, <img alt="Image 1" aria-hidden="true" class="_6tbg2q" data-original-uri="https://a0.muscache.com/im/pictures/c8d70848-3084-4676-9a7c-c3502e96ad64.jpg?im_w=720" elementtiming="LCP-target" fetchpriority="auto" id="FMP-target" loading="lazy" src="https://a0.muscache.com/im/pictures/c8d70848-3084-4676-9a7c-c3502e96ad64.jpg?im_w=720" style="object-fit:cover;vertical-align:bottom"/>, <img alt="Image 1" aria-hidden="true" class="_6tbg2q" data-original-uri="https://a0.muscache.com/im/pictures/fbe89637-3dd2-4298-b138-1cbc803f18c4.jpg?im_w=720" elementtiming="LCP-target" fetchpriority="auto" id="FMP-target" loading="lazy" src="https://a0.muscache.com/im/pictures/fbe89637-3dd2-4298-b138-1cbc803f18c4.jpg?im_w=720" style="object-fit:cover;vertical-align:bottom"/>, <img alt="Image 1" aria-hidden="true" class="_6tbg2q" data-original-uri="https://a0.muscache.com/im/pictures/89887323/3585346e_original.jpg?im_w=720" elementtiming="LCP-target" fetchpriority="auto" id="FMP-target" loading="lazy" src="https://a0.muscache.com/im/pictures/89887323/3585346e_original.jpg?im_w=720" style="object-fit:cover;vertical-align:bottom"/>, <img alt="Image 1" aria-hidden="true" class="_6tbg2q" data-original-uri="https://a0.muscache.com/im/pictures/miso/Hosting-51660405/original/9b86ffeb-18ef-4a1d-9ba6-52ccab3b2454.jpeg?im_w=720" elementtiming="LCP-target" fetchpriority="auto" id="FMP-target" loading="lazy" src="https://a0.muscache.com/im/pictures/miso/Hosting-51660405/original/9b86ffeb-18ef-4a1d-9ba6-52ccab3b2454.jpeg?im_w=720" style="object-fit:cover;vertical-align:bottom"/>, <img alt="Image 1" aria-hidden="true" class="_6tbg2q" data-original-uri="https://a0.muscache.com/im/pictures/614dd2d3-5b21-4338-b0f5-262e14633d23.jpg?im_w=720" elementtiming="LCP-target" fetchpriority="auto" id="FMP-target" loading="lazy" src="https://a0.muscache.com/im/pictures/614dd2d3-5b21-4338-b0f5-262e14633d23.jpg?im_w=720" style="object-fit:cover;vertical-align:bottom"/>, <img alt="Image 1" aria-hidden="true" class="_6tbg2q" data-original-uri="https://a0.muscache.com/im/pictures/48e25673-8a30-4e46-8d93-b74f620fa168.jpg?im_w=720" elementtiming="LCP-target" fetchpriority="auto" id="FMP-target" loading="lazy" src="https://a0.muscache.com/im/pictures/48e25673-8a30-4e46-8d93-b74f620fa168.jpg?im_w=720" style="object-fit:cover;vertical-align:bottom"/>, <img alt="Image 1" aria-hidden="true" class="_6tbg2q" data-original-uri="https://a0.muscache.com/im/pictures/miso/Hosting-52892701/original/5534182d-604f-4a6d-98eb-fee5a2336489.jpeg?im_w=720" elementtiming="LCP-target" fetchpriority="auto" id="FMP-target" loading="lazy" src="https://a0.muscache.com/im/pictures/miso/Hosting-52892701/original/5534182d-604f-4a6d-98eb-fee5a2336489.jpeg?im_w=720" style="object-fit:cover;vertical-align:bottom"/>, <img alt="Image 1" aria-hidden="true" class="_6tbg2q" data-original-uri="https://a0.muscache.com/im/pictures/miso/Hosting-636028761024713151/original/9c7b01e8-37e0-4293-b7cc-32b6473a873e.jpeg?im_w=720" elementtiming="LCP-target" fetchpriority="auto" id="FMP-target" loading="lazy" src="https://a0.muscache.com/im/pictures/miso/Hosting-636028761024713151/original/9c7b01e8-37e0-4293-b7cc-32b6473a873e.jpeg?im_w=720" style="object-fit:cover;vertical-align:bottom"/>, <img alt="Image 1" aria-hidden="true" class="_6tbg2q" data-original-uri="https://a0.muscache.com/im/pictures/miso/Hosting-648999955988757660/original/875db957-823f-4fe2-aa49-51914bdb4128.jpeg?im_w=720" elementtiming="LCP-target" fetchpriority="auto" id="FMP-target" loading="lazy" src="https://a0.muscache.com/im/pictures/miso/Hosting-648999955988757660/original/875db957-823f-4fe2-aa49-51914bdb4128.jpeg?im_w=720" style="object-fit:cover;vertical-align:bottom"/>, <img alt="Image 1" aria-hidden="true" class="_6tbg2q" data-original-uri="https://a0.muscache.com/im/pictures/miso/Hosting-610178886995393730/original/42695228-5ab8-4b30-9818-0b5d44b0d140.jpeg?im_w=720" elementtiming="LCP-target" fetchpriority="auto" id="FMP-target" loading="lazy" src="https://a0.muscache.com/im/pictures/miso/Hosting-610178886995393730/original/42695228-5ab8-4b30-9818-0b5d44b0d140.jpeg?im_w=720" style="object-fit:cover;vertical-align:bottom"/>, <img alt="Image 1" aria-hidden="true" class="_6tbg2q" 
+	data-original-uri="https://a0.muscache.com/im/pictures/7a564e9d-df3a-4da7-8a85-0df5711e482a.jpg?im_w=720" 
+	elementtiming="LCP-target"
+	fetchpriority="auto" 
+	id="FMP-target" 
+	loading="lazy" 
+	src="https://a0.muscache.com/im/pictures/7a564e9d-df3a-4da7-8a85-0df5711e482a.jpg?im_w=720" 
+	style="object-fit:cover;vertical-align:bottom"/>]
+	
+	
+
+	
+	
+1 di 6 elementi mostratiSuperhostLoft 
+⋅ Naviglicentro storico: grazioso monolocale sul 
+naviglioHost 
+privato09–16 
+gen
+103 € 
+95 € 
+notte
+95 € a notte, 
+originariamente
+103 € · 
+659 € in totale 659 € 
+in totale
+Mostra i prezzi in dettaglio
+5.0 
+(9)
+
+1 di 6 elementi mostratiLoft 
+⋅ Navigli Open space nel cuore dei NavigliHost 
+privato01–08 
+nov
+93 € 
+notte
+93 € a notte · 
+647 € in totale 647 € 
+in totale
+Mostra i prezzi in dettaglio
+4.69 
+(48)
+
+1 di 6 elementi mostratiLoft 
+⋅ MilanoLoft Navigli MilanoHost 
+privato29 ott – 04 nov
+117 € 
+97 € 
+notte
+97 € a notte, 
+originariamente 
+117 € ·
+ 581 € in totale581 € in totale
+ Mostra i prezzi in dettaglio
+ 
+ Nuovo
+ 
+ 1 di 6 elementi mostratiSuperhostAppartamento 
+ ⋅ NavigliSFORZA 57 - LoftHost privato02–09 nov120 € notte120 € a notte · 836 € in totale836 € in totaleMostra i prezzi in dettaglio4.76 (17)1 di 6 elementi mostratiSuperhostAppartamento ⋅ TicineseSilenzioso ultimo piano. Bilocale Navigli MilanoHost privato05–10 nov96 € notte96 € a notte · 478 € in totale478 € in totaleMostra i prezzi in dettaglio4.9 (21)1 di 6 elementi mostratiAppartamento ⋅ MilanoCasaMartaNavigliHost privato09–14 ott141 € 118 € notte118 € a notte, originariamente 141 € · 587 € in totale587 € in totaleMostra i prezzi in dettaglioNuovo1 di 6 elementi mostratiPlusAppartamento ⋅ TicineseAccogliente casa di ringhiera in zona Porta TicineseHost privato30 ott – 06 nov118 € notte118 € a notte · 820 € in totale820 € in totaleMostra i prezzi in dettaglio4.95 (58)1 di 6 elementi mostratiLoft ⋅ NavigliLOFT AI NAVIGLI A 2 PASSI DA BOCCONI, NABA, CENTROHost privato12–19 ott163 € notte163 € a notte · 1.137 € in totale1.137 € in totaleMostra i prezzi in dettaglio4.89 (55)1 di 6 elementi mostratiSuperhostAppartamento ⋅ TicineseAppartamento Rouge Finest BocconiHost privato16–22 gen118 € 108 € notte108 € a notte, originariamente 118 € · 647 € in totale647 € in totaleMostra i prezzi in dettaglio5.0 (11)1 di 6 elementi mostratiSuperhostAppartamento ⋅ NavigliDelizioso appartamento sui NavigliHost privato12–19 nov88 € notte88 € a notte · 613 € in totale613 € in totaleMostra i prezzi in dettaglio4.92 (105)1 di 6 elementi mostratiSuperhostAppartamento ⋅ TicineseQuattro passi dalla DarsenaHost privato19–24 ott141 € notte141 € a notte · 701 € in totale701 € in totaleMostra i prezzi in dettaglio4.84 (37)1 di 6 elementi mostratiAppartamento ⋅ NavigliIncantevole appartamento nei NavigliHost privato04–11 gen116 € 101 € notte101 € a notte, originariamente 116 € · 707 € in totale707 € in totaleMostra i prezzi in dettaglio4.92 (80)1 di 6 elementi mostratiSuperhostAppartamento ⋅ TicineseNuovo bilocale in Corso San Gottardo (Navigli)Host professionista07–12 ott213 € notte213 € a notte · 1.064 € in totale1.064 € in totaleMostra i prezzi in dettaglio5.0 (23)1 di 6 elementi mostratiSuperhostAppartamento ⋅ NavigliCasa Barone - Navigli in Porta GenovaHost privato30 ott – 04 nov87 € notte87 € a notte · 431 € in totale431 € in totaleMostra i prezzi in dettaglio4.88 (67)1 di 6 elementi mostratiAppartamento ⋅ TicineseSuite di charme sui tetti dei NavigliHost privato10–15 ott141 € notte141 € a notte · 704 € in totale704 € in totaleMostra i prezzi in dettaglio4.78 (109)1 di 6 elementi mostratiSuperhostStanza privata ⋅ NavigliCamera doppia silenziosa nel cuore dei NavigliHost privato12–17 ott81 € 73 € notte73 € a notte, originariamente 81 € · 361 € in totale361 € in totaleMostra i prezzi in dettaglio4.92 (91)1 di 6 elementi mostratiAppartamento ⋅ TicineseSweet Flat nella zona dei NavigliHost professionista02–07 ott137 € 116 € notte116 € a notte, originariamente 137 € · 579 € in totale579 € in totaleMostra i prezzi in dettaglio4.5 (4)1 di 6 elementi mostratiAppartamento ⋅ TicineseAccogliente ed elegante appartamento con 1 camera da letto nella zona dei NavigliHost privato16–21 ott116 € notte116 € a notte · 578 € in totale578 € in totaleMostra i prezzi in dettaglio5.0 (6)1 di 6 elementi mostratiSuperhostAppartamento ⋅ TicineseAPPARTAMENTO SUI NAVIGLI CON A/C + WI-FI + BICIHost privato11–16 ott137 € notte137 € a notte · 683 € in totale683 € in totaleMostra i prezzi in dettaglio4.85 (33)1 di 6 elementi mostratiAppartamento ⋅ NavigliNavigli area.Host privato17–22 ott111 € notte111 € a notte · 554 € in totale554 € in totaleMostra i prezzi in dettaglio4.63 (288)
+
+

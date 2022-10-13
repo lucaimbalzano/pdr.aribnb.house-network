@@ -5,6 +5,7 @@ from cronometer import ChronoMeter
 import datetime as dt
 import time
 from airbnb_url import url_defraction_lat_lng
+from utils import write_excel
 
 VERSION = 'V1.001'
 # link = 'https://www.airbnb.it/'
@@ -15,12 +16,19 @@ if __name__ == '__main__':
     print("       : Airbnb -> AIP::Annual Income Plan")
     chrono = ChronoMeter()
     chrono.start_chrono()
+    
     # core_extraction()
 
-    list_position_splitted = url_defraction_lat_lng.defraction_url_lat_lng(link)
-    url_moving_nord = url_defraction_lat_lng.moving_to_nord_calculation(link,list_position_splitted)
-    print('MOVING INTO LINKS:')
-    print('NORD: '+url_moving_nord)
+    # list_position_splitted = url_defraction_lat_lng.defraction_url_lat_lng(link)
+    # print('LINK MOVE NORD: '+compare_move_nord)
+    # print('----------------')
+    # print('LINK MOVE SUD: '+url_defraction_lat_lng.moving_map_nwse_calculation(link,list_position_splitted,settings.MOVING_TO_VALUES_NWSE[1]))
+    # print('----------------')
+    # print('LINK MOVE WEST: '+url_defraction_lat_lng.moving_map_nwse_calculation(link,list_position_splitted,settings.MOVING_TO_VALUES_NWSE[2]))
+    # print('----------------')
+    # print('LINK MOVE EST: '+url_defraction_lat_lng.moving_map_nwse_calculation(link,list_position_splitted,settings.MOVING_TO_VALUES_NWSE[3]))
+
+    write_excel.write_excel_by_data_retrived()
 
     chrono.stop_chrono()
     chrono.print_time() 
