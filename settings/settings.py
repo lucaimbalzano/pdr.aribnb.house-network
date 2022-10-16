@@ -1,5 +1,13 @@
+# Dreams without Goals are just Dreams
+#
+# - @lucaimbalzano
+
+
 # general settings.py
 
+VERSION = 'V1.001'
+
+BASE_URL = 'https://www.airbnb.it/s/'
 
 #NWSE VALUES
 #MOVE TO NORD

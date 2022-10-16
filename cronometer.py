@@ -1,3 +1,9 @@
+# Dreams without Goals are just Dreams
+#
+# - @lucaimbalzano
+
+
+
 import time
 
 """
@@ -39,10 +45,10 @@ class ChronoMeter():
     """
 
     def print_time(self):
-        print("## execution time ##")
-        print(f"## {self.get_execution_time()} ms")
-        print(f"## {self.get_execution_time()/1000*60} s")
-        print(f"## {(self.get_execution_time()/1000)%60} m")
+        print("[TIME-EXECUTION]")
+        print(f"[ MILLISECONDS: {self.get_execution_time()} ms ]")
+        print(f"[ SECONDS {self.get_execution_time()/1000*60} s ]")
+        print(f"[ MINUTES {(self.get_execution_time()/1000)%60} m ]")
 
     """
     Method that return the current time in 

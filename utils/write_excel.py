@@ -1,3 +1,9 @@
+# Dreams without Goals are just Dreams
+#
+# - @lucaimbalzano
+
+
+
 from importlib.resources import path
 from openpyxl import Workbook, worksheet, load_workbook
 from os import listdir

@@ -1,5 +1,19 @@
 # coding=utf-8
-from numpy import add
+# Dreams without Goals are just Dreams
+#
+# - @lucaimbalzano
+
+from logging import DEBUG, Logger
+import logging
+from math import lgamma
+from pickletools import optimize
+import sys
+import requests
+import urllib.parse
+from airbnb_url.url_assembler import url_to_search_master_assembler_selenium
+from airbnb_url.url_assembler_selenium import get_next_page, get_page2, get_page3, get_search_address
+from console.get_url_assembler_console import get_link_search_houses_by_input_user_selenium
+from console.log.logger import get_logger
 from settings import settings
 from airbnb_scraping.airbnb_extraction import core_extraction
 from cronometer import ChronoMeter
@@ -7,33 +21,58 @@ import datetime as dt
 import time
 from airbnb_url import url_defraction_lat_lng
 from utils import write_excel
+import console.log 
 
-VERSION = 'V1.001'
-# link = 'https://www.airbnb.it/'
-link = 'https://www.airbnb.it/s/Corso-San-Gottardo--Milano--MI--Italia/homes?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&flexible_trip_lengths%5B%5D=one_week&price_filter_input_type=0&query=Corso%20San%20Gottardo%2C%20Milano%2C%20MI&place_id=EiZDb3JzbyBTYW4gR290dGFyZG8sIE1pbGFubywgTUksIEl0YWxpYSIuKiwKFAoSCZdiDwkIxIZHEYwn8Av-7lFfEhQKEgnndRI_ScGGRxGNDnTGE83_PA&date_picker_type=calendar&source=structured_search_input_header&search_type=user_map_move&ne_lat=45.45298769522644&ne_lng=9.185254798466218&sw_lat=45.44257044903232&sw_lng=9.170685039097322&zoom=16&search_by_map=true'
 
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+
+logger = get_logger()
+
+
+def get_options_web_driver():
+    options = webdriver.ChromeOptions()
+    options.add_argument("--incognito");
+    options.add_experimental_option("excludeSwitches", ["enable-logging"])
+    return options
 
 
 if __name__ == '__main__':
-    print(VERSION+" : Airbnb -> PDR::Piano Di Rendimento")
-    # print("       : Airbnb -> AIP::Annual Income Plan")
-    # chrono = ChronoMeter()
-    # chrono.start_chrono()
-    
-    # core_extraction()
+    print("Airbnb -> AIP::Annual Income Plan")
+    logger.debug('>> STARTED - PDR::Piano Di Rendimento')
+    logger.debug('        - AIP::Annual Income Plan')
+    chrono = ChronoMeter()
+    chrono.start_chrono()
 
-    # list_position_splitted = url_defraction_lat_lng.defraction_url_lat_lng(link)
-    # print('LINK MOVE NORD: '+compare_move_nord)
-    # print('----------------')
-    # print('LINK MOVE SUD: '+url_defraction_lat_lng.moving_map_nwse_calculation(link,list_position_splitted,settings.MOVING_TO_VALUES_NWSE[1]))
-    # print('----------------')
-    # print('LINK MOVE WEST: '+url_defraction_lat_lng.moving_map_nwse_calculation(link,list_position_splitted,settings.MOVING_TO_VALUES_NWSE[2]))
-    # print('----------------')
-    # print('LINK MOVE EST: '+url_defraction_lat_lng.moving_map_nwse_calculation(link,list_position_splitted,settings.MOVING_TO_VALUES_NWSE[3]))
+    options = get_options_web_driver()
+    browser = webdriver.Chrome('C:/Users/lucai/Documents/Utils/SW/WebDriver/106/0.5249.61/chromedriver.exe', chrome_options=options)
+    browser.get('https://www.airbnb.com')
+    
+    url_retrived = get_link_search_houses_by_input_user_selenium(browser)
+    
+    for i in range(3):
+        if (i == 1):
+            url = get_search_address()
+            #   soup = BeautifulSoup(requests.get(url).content, 'html.parser')
+            core_extraction(url,browser, None)
+        if( i == 2):
+            # url_to_search_master_assembler_selenium(url, checkin, checkout, lat, lng, adults)
+            url =  get_page2(url_retrived)
+            core_extraction(url_retrived,browser, None)
+        if( i == 3):
+            # url_to_search_master_assembler_selenium(url, checkin, checkout, lat, lng, adults)
+            get_page3(url_retrived)
+
+
+    
+    chrono.stop_chrono()
+    chrono.print_time()       
+    exit(1)    
 
     # write_excel.write_excel_by_data_retrived()
 
-    # chrono.stop_chrono()
-    # chrono.print_time() 
-    exit(1)
-
+    
