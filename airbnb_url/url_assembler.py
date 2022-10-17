@@ -19,8 +19,6 @@ refinement_paths = '&refinement_paths%5B%5D=%2Fhomes'
 flexible_trip_lengths = '&flexible_trip_lengths%5B%5D=one_week'
 price_filter_input_type = '&price_filter_input_type=0'
 
-# query_percentage = '..'
-
 date_picker_type = '&date_picker_type=calendar'
 source = '&source=structured_search_input_header'
 # search_type = '&search_type=user_map_move'

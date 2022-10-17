@@ -20,15 +20,18 @@ def get_price_by_dirty_format(price_str):
             price = price + elems
 
 def get_all_link_page(soup,url):
+    
+    #TESTS
+
     headers = {
-        'User-Agent': 'Mozilla / 5.0(Windows NT 10.0) AppleWebKit / 537.36(KHTML, like Gecko) Chrome / 104.0.0.0 Safari / 537.36'}
-            # 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
-    # Mozilla / 5.0(Windows NT 10.0) AppleWebKit / 537.36(KHTML, like Gecko) Chrome / 104.0.0.0 Safari / 537.36
+                'User-Agent': 'Mozilla / 5.0(Windows NT 10.0) AppleWebKit / 537.36(KHTML, like Gecko) Chrome / 104.0.0.0 Safari / 537.36'
+        }
+                            # 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
+                             # Mozilla / 5.0(Windows NT 10.0) AppleWebKit / 537.36(KHTML, like Gecko) Chrome / 104.0.0.0 Safari / 537.36
     res = get(url,headers=headers)
     soup = BeautifulSoup(res.text, features="html.parser")
     url_list = soup.find_all("meta", attrs={"itemprop": "url"})
 
-    print('---------------------------------------------------------------------------------------------')
     html_list_pagination = soup.find_all('div', 'c1yo0219')
     print(html_list_pagination.prettify())
     # all_links = soup.find_all('div','_jro6t0')
@@ -45,37 +48,26 @@ def extraction_by_soup(soup):
             all_cards = html_list[0].find_all('div', 'c4mnd7m')
             for i in range(len(all_cards)):
                 print("#### CARD N [ " + str(i) + " ] ####")
-                # URL-IMAGE-COVER-CARD
+                logger.debug("#### CARD N [ " + str(i) + " ] ####")
+                
                 cover_card = all_cards[i].find('source').get('srcset')
-                # print("url cover card: "+str(cover_card))
-                # TITLE
                 title_card_general = all_cards[i].find('div', 't1jojoys').get_text()
-                # print("title card general: "+str(title_card_general))
                 title_card_detail = all_cards[i].find('div', 'nquyp1l').get_text()
-                # print("title card detail: " + str(title_card_detail))
-                # URL
                 all_meta = all_cards[i].find_all('meta')
                 urls = soup.find(itemprop="url").get("content")
-                print("url: " + urls if urls else "url: No meta url given")
-                # IS-SUPERHOST
+                logger.debug("URL: " + urls if urls else "url: No meta url given")
                 is_superHost = all_cards[i].find_all('div', 't1mwk1n0')
-                # print(is_superHost[0].get_text() if is_superHost.__len__() > 0  else "Not SuperHost")
-                # DATE-AVAILABILITY
                 date_availability = all_cards[i].find_all('div', 'f15liw5s')
-                # print("date: " + str(date_availability[3].get_text()))
-                # PRICE
                 price = all_cards[i].find_all('span', 'a8jt5op')
+
+                logger.debug("price: " + str(price[0].get_text()[0:4]))
                 print("price: " + str(price[0].get_text()[0:4]))
-                # print("#### END CARD N [ "+ str(i) +" ] ####")
+                logger.debug("#### END CARD N [ "+ str(i) +" ] ####")
         except Exception as e:
             print('Error occurred: '+e)
-            logger.error('Error occurred: ' + e)
+            logger.error('airbnb_extraction.py::extraction_by_soup() - Failed error occurred: ' + str(e))
         finally:
             return None;
-
-        
-
-
 
 
 def core_extraction( url ):

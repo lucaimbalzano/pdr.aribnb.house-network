@@ -20,7 +20,6 @@ def get_next_page(browser):
     scroll_to_footer_paginations(browser)
     try:
         btn_next_page = browser.find_element(By.CLASS_NAME, "_1bfat5l").click()
-        logger.info('>> Next page clicked with success')
     except Exception as e:
         logger.error('url_assembler_selenium.py::get_next_page() - Failed error occurred: ' + str(e))
 
@@ -47,7 +46,9 @@ def get_search_address(browser):
     form_textfield_address.send_keys("Via Ugo Betti 22, Milano MI Italia")    
     btn_search = browser.find_element(By.CLASS_NAME, "b134py57").click()
 
-    return get_next_page(browser)
+    time.sleep(2)
+    browser.refresh()
+    return str(browser.current_url)
 
 def get_page2(url):
     print('[DEBUG] - PAGE2:: '+url+page2)

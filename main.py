@@ -68,8 +68,6 @@ if __name__ == '__main__':
             # url_to_search_master_assembler_selenium(url, checkin, checkout, lat, lng, adults)
             url = get_page3(url_retrived)
             core_extraction(url)
-
-
     
     chrono.stop_chrono()
     chrono.print_time()

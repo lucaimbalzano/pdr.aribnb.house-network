@@ -264,29 +264,20 @@ LINK MOVE EST: https://www.airbnb.it/s/Corso-San-Gottardo--Milano--MI--Italia/ho
 
 
 
-TEST URL NEXT PAGE:
+TEST URLs:
+
+PAGE 2
+
+https://www.airbnb.com/s/Via-Ugo-Betti-22--Milano-MI-Italia/homes?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&flexible_trip_lengths%5B%5D=one_week&price_filter_input_type=0&price_filter_num_nights=5&source=structured_search_input_header&search_type=search_query
+&ne_lat=45.5022909&ne_lng=9.1139202&sw_lat=45.4822909&sw_lng=9.093920200000001
+&zoom=16
+&checkin=2022-11-22&checkout=2022-11-27&adults=4
+&items_offset=40&items_offset=20&cursor=eyJzZWN0aW9uX29mZnNldCI6MiwiaXRlbXNfb2Zmc2V0IjoyMCwidmVyc2lvbiI6MX0%3D
 
 
+https://www.airbnb.com/s/Via-Ugo-Betti-22--Milano-MI-Italia/homes?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&flexible_trip_lengths%5B%5D=one_week&price_filter_input_type=0&price_filter_num_nights=5&source=structured_search_input_header&search_type=user_map_move
+&ne_lat=45.508453537769846&ne_lng=9.129094543774102&sw_lat=45.4829439514079&sw_lng=9.079527321178887
+&zoom=15
+&checkin=2022-11-22&checkout=2022-11-27&adults=4
+&query=Via%20Ugo%20Betti%2C%2022%2C%20Milan%2C%20MI%2C%20Italia&search_by_map=true
 
-
-https://www.airbnb.com/s/Via-Ugo-Betti-22--Milano-MI-Italia/homes
-	?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&flexible_trip_lengths%5B%5D=one_week
-	&price_filter_input_type=0&price_filter_num_nights=5&source=structured_search_input_header
-	&search_type=search_query&query=Via%20Ugo%20Betti%2C%2022%2C%20Milan%2C%20MI%2C%20Italia
-	&federated_search_session_id=efe88e69-ac5b-4a6e-9d13-0eb6d579f420
-	&pagination_search=true&items_offset=20&section_offset=2
-
-
-
-https://www.airbnb.com/s/Via-Ugo-Betti-22--Milano-MI-Italia/homes?
-	tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&flexible_trip_lengths%5B%5D=one_week
-	&price_filter_input_type=0&price_filter_num_nights=5&source=structured_search_input_header
-	&search_type=search_query&query=Via%20Ugo%20Betti%2C%2022%2C%20Milan%2C%20MI%2C%20Italia
-	&pagination_search=true
-	&items_offset=20
-	&section_offset=2
-	&cursor=eyJzZWN0aW9uX29mZnNldCI6MiwiaXRlbXNfb2Zmc2V0IjoyMCwidmVyc2lvbiI6MX0%3D
-
-
-
-	https://www.airbnb.it/s/via-della-spiga-20--Milano-MI--Italia/homes?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&flexible_trip_lengths%5B%5D=one_week&price_filter_input_type=0&price_filter_num_nights=5&date_picker_type=calendar&source=structured_search_input_header&search_type=search_query&items_offset=40&items_offset=20&cursor=eyJzZWN0aW9uX29mZnNldCI6MiwiaXRlbXNfb2Zmc2V0IjoyMCwidmVyc2lvbiI6MX0%3D
