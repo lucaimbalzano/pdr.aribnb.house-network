@@ -8,7 +8,7 @@ from typing import Any
 
 
 class Data_immobile:
-  def __init__(self,name,price,space,rooms,floor,description,title,url,number):
+  def __init__(self,name,url,price,space,rooms,floor,description,title,number):
     self.name = name
     self.price = price
     self.space = space

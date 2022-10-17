@@ -7,6 +7,7 @@ import re
 from bs4 import BeautifulSoup
 from requests import get
 from console.log.logger import get_logger
+from dto.data_immobile import Data_immobile
 
 
 logger = get_logger()
@@ -42,6 +43,7 @@ def get_all_link_page(soup,url):
 
 
 def extraction_by_soup(soup):
+
     html_list = soup.find_all('div', 'gh7uyir')
     if(html_list != 0 and html_list != None and len(html_list) != 0):
         try:
@@ -60,16 +62,19 @@ def extraction_by_soup(soup):
                 date_availability = all_cards[i].find_all('div', 'f15liw5s')
                 price = all_cards[i].find_all('span', 'a8jt5op')
 
-                logger.debug("price: " + str(price[0].get_text()[0:4]))
-                print("price: " + str(price[0].get_text()[0:4]))
+                house_airbnb = Data_immobile(title_card_detail,urls,price, None, None, None, None, None, None)
+
+                # all_cards[i].find_all('span', 'a8jt5op')[1].get_text()[1:4]
+                logger.debug("price: " + str(price[1].get_text()[1:4]))
+                print("price: " + str(price[1].get_text()[1:4]))
                 logger.debug("#### END CARD N [ "+ str(i) +" ] ####")
         except Exception as e:
             print('Error occurred: '+e)
             logger.error('airbnb_extraction.py::extraction_by_soup() - Failed error occurred: ' + str(e))
         finally:
-            return None;
+            return house_airbnb;
 
 
 def core_extraction( url ):
         soup = BeautifulSoup(requests.get(url).content, 'html.parser')
-        extraction_by_soup(soup)
+        return extraction_by_soup(soup)

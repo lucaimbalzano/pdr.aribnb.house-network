@@ -47,8 +47,8 @@ class ChronoMeter():
     def print_time(self):
         print("[ TIME-EXECUTION ]")
         print(f"[ MILLISECONDS: {self.get_execution_time()} ms ]")
-        print(f"[ SECONDS {self.get_execution_time()/1000*60} s ]")
-        print(f"[ MINUTES {(self.get_execution_time()/1000)%60} m ]")
+        print(f"[ SECONDS {self.get_execution_time()/1000} s ]")
+        print(f"[ MINUTES {(self.get_execution_time()/1000)/60} m ]")
 
     """
     Method that return the current time in 

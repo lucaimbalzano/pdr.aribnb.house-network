@@ -149,8 +149,9 @@ def get_link_search_houses_by_input_user_selenium(browser):
     date_checkin = '2022-11-22'
     date_checkout = '2022-11-27'
     adults = '4'
-    address_lat_lng = 'Via Ugo Betti 22, Milano, MI Italia'
-    address = get_search_address(browser)
+    # address_lat_lng = 'Via Ugo Betti 22, Milano, MI Italia'
+    address_lat_lng = 'Via Paolo Sarpi 10, Milano, MI Italia'
+    address = get_search_address(browser, address_lat_lng)
 
     # urllib3.parse.quote(address)
     url = 'https://nominatim.openstreetmap.org/search/' + address_lat_lng +'?format=json'

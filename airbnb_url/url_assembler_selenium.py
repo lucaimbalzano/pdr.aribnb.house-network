@@ -37,13 +37,13 @@ def scroll_to_footer_paginations(browser):
     time.sleep(3)
 
 
-def get_search_address(browser):
+def get_search_address(browser,url):
     time.sleep(2)
     open_searchbox = browser.find_element(By.CLASS_NAME, 'f19g2zq0').click()
     time.sleep(2)
 
     form_textfield_address = browser.find_element(By.NAME, 'query')
-    form_textfield_address.send_keys("Via Ugo Betti 22, Milano MI Italia")    
+    form_textfield_address.send_keys(url)
     btn_search = browser.find_element(By.CLASS_NAME, "b134py57").click()
 
     time.sleep(2)

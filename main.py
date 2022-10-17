@@ -32,6 +32,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 
 logger = get_logger()
+houses_airbnb = []
 
 
 def get_options_web_driver():
@@ -53,27 +54,28 @@ if __name__ == '__main__':
     browser.get('https://www.airbnb.com')
     
     url_retrived = get_link_search_houses_by_input_user_selenium(browser)
-    
+    url_wrong = 'https://www.airbnb.com/s/Via-Ugo-Betti-22--Milano-MI-Italia/homes?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&flexible_trip_lengths%5B%5D=one_week&price_filter_input_type=0&price_filter_num_nights=5&source=structured_search_input_header&search_type=search_query&ne_lat=45.50229090000&ne_lng=9.11392020000&sw_lat=45.48229090000&sw_lng=9.093920200000001&zoom=15&checkin=2022-11-22&checkout=2022-11-27&adults=4'
     for i in range(3):
         if (i == 0):
             # url =
             #   soup = BeautifulSoup(requests.get(url).content, 'html.parser')
             print('[DEBUG] - PAGE1:: ' + url_retrived)
-            core_extraction(url_retrived)
+            houses_airbnb.append(core_extraction(url_retrived))
         if( i == 1):
             # url_to_search_master_assembler_selenium(url, checkin, checkout, lat, lng, adults)
             url =  get_page2(url_retrived)
-            core_extraction(url)
+            houses_airbnb.append(core_extraction(url))
         if( i == 2):
             # url_to_search_master_assembler_selenium(url, checkin, checkout, lat, lng, adults)
             url = get_page3(url_retrived)
-            core_extraction(url)
+            houses_airbnb.append(core_extraction(url))
     
+
+    write_excel.write_excel_by_data_retrived(houses_airbnb)
+
     chrono.stop_chrono()
     chrono.print_time()
     browser.close()
     exit(1)    
-
-    # write_excel.write_excel_by_data_retrived()
 
     

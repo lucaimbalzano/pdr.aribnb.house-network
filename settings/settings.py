@@ -9,6 +9,8 @@ VERSION = 'V1.001'
 
 BASE_URL = 'https://www.airbnb.it/s/'
 
+PREFIX_URL_EXCEL =  '⬆️ LINK BNB: '
+
 #NWSE VALUES
 #MOVE TO NORD
 NORD_NWSE_OPERATIONS = [1,1,1,1]

@@ -9,7 +9,9 @@ import logging
 logger = logging.getLogger()
 currentDate = datetime.date.today()
 time_now = currentDate.strftime("%Y-%m-%d")
-hdlr = logging.FileHandler(time_now+'-logger-pdr.log')
+
+path = ".\\console\\log\\"
+hdlr = logging.FileHandler(path + time_now+'-logger-pdr.log')
 formatter = logging.Formatter('PDR.AIRBNB.HOUSE-NETWORK:  %(asctime)s %(levelname)s %(message)s')
 hdlr.setFormatter(formatter)
 logger.addHandler(hdlr)
