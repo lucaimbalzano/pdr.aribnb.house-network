@@ -17,7 +17,7 @@ page2 = '&items_offset=40&items_offset=20&cursor=eyJzZWN0aW9uX29mZnNldCI6MiwiaXR
 
 
 def get_next_page(browser):
-    scroll_to_footer_paginations()
+    scroll_to_footer_paginations(browser)
     try:
         btn_next_page = browser.find_element(By.CLASS_NAME, "_1bfat5l").click()
         logger.info('>> Next page clicked with success')
@@ -47,10 +47,12 @@ def get_search_address(browser):
     form_textfield_address.send_keys("Via Ugo Betti 22, Milano MI Italia")    
     btn_search = browser.find_element(By.CLASS_NAME, "b134py57").click()
 
-    return get_next_page()
+    return get_next_page(browser)
 
 def get_page2(url):
+    print('[DEBUG] - PAGE2:: '+url+page2)
     return url + page2;
 
 def get_page3(url):
+    print('[DEBUG] - PAGE3:: '+url+page3)
     return url + page3;

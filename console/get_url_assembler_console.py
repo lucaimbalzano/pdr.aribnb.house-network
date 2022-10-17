@@ -6,7 +6,7 @@ import urllib3
 import settings
 import requests
 from airbnb_url.url_assembler import url_to_search_master_assembler, url_to_search_master_assembler_selenium
-from airbnb_url.url_assembler_selenium import get_next_page
+from airbnb_url.url_assembler_selenium import get_next_page, get_search_address
 
 
 def get_link_search_houses_by_input_user():
@@ -129,30 +129,31 @@ def get_link_search_houses_by_input_user_selenium(browser):
     print('::CHECKIN')
     print('::CHECKOUT')
     print(' ')
-    print('example of address: ')
-    print('>> Via Ugo Betti 22, Milano, MI Italia')
-    print('>> Corso Sano Gottardo 20, Milano, MI Italia')
-    address = input('Enter the address: ')
-    print('>> '+address)
-    print(' ')
-    print('format date to enter: YEAR-MONTH-DAY')
-    date_checkin = input('Enter the checkin date: ')
-    print('>> '+ date_checkin)
-    print(' ')
-    date_checkout = input('Enter the checkout date: ')
-    print('>> '+ date_checkout)
-    print(' ')
-    adults = input('Enter quantity adults: ')
-    print('>> '+ adults)
-    print(' ')
+    # print('example of address: ')
+    # print('>> Via Ugo Betti 22, Milano, MI Italia')
+    # print('>> Corso Sano Gottardo 20, Milano, MI Italia')
+    # address = input('Enter the address: ')
+    # print('>> '+address)
+    # print(' ')
+    # print('format date to enter: YEAR-MONTH-DAY')
+    # date_checkin = input('Enter the checkin date: ')
+    # print('>> '+ date_checkin)
+    # print(' ')
+    # date_checkout = input('Enter the checkout date: ')
+    # print('>> '+ date_checkout)
+    # print(' ')
+    # adults = input('Enter quantity adults: ')
+    # print('>> '+ adults)
+    # print(' ')
    
-    date_checkin = '20222-11-22'
+    date_checkin = '2022-11-22'
     date_checkout = '2022-11-27'
     adults = '4'
+    address_lat_lng = 'Via Ugo Betti 22, Milano, MI Italia'
+    address = get_search_address(browser)
 
-    address = get_next_page(browser)
-
-    url = 'https://nominatim.openstreetmap.org/search/' + urllib3.parse.quote(address) +'?format=json'
+    # urllib3.parse.quote(address)
+    url = 'https://nominatim.openstreetmap.org/search/' + address_lat_lng +'?format=json'
     response = requests.get(url).json()
     lat = response[0]["lat"]
     lng = response[0]["lon"]

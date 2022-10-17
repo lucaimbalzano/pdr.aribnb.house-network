@@ -55,22 +55,25 @@ if __name__ == '__main__':
     url_retrived = get_link_search_houses_by_input_user_selenium(browser)
     
     for i in range(3):
-        if (i == 1):
-            url = get_search_address()
+        if (i == 0):
+            # url =
             #   soup = BeautifulSoup(requests.get(url).content, 'html.parser')
-            core_extraction(url,browser, None)
-        if( i == 2):
+            print('[DEBUG] - PAGE1:: ' + url_retrived)
+            core_extraction(url_retrived)
+        if( i == 1):
             # url_to_search_master_assembler_selenium(url, checkin, checkout, lat, lng, adults)
             url =  get_page2(url_retrived)
-            core_extraction(url_retrived,browser, None)
-        if( i == 3):
+            core_extraction(url)
+        if( i == 2):
             # url_to_search_master_assembler_selenium(url, checkin, checkout, lat, lng, adults)
-            get_page3(url_retrived)
+            url = get_page3(url_retrived)
+            core_extraction(url)
 
 
     
     chrono.stop_chrono()
-    chrono.print_time()       
+    chrono.print_time()
+    browser.close()
     exit(1)    
 
     # write_excel.write_excel_by_data_retrived()
