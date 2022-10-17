@@ -43,7 +43,7 @@ def get_all_link_page(soup,url):
 
 
 def extraction_by_soup(soup):
-
+    house_airbnb_list = [];
     html_list = soup.find_all('div', 'gh7uyir')
     if(html_list != 0 and html_list != None and len(html_list) != 0):
         try:
@@ -56,8 +56,14 @@ def extraction_by_soup(soup):
                 title_card_general = all_cards[i].find('div', 't1jojoys').get_text()
                 title_card_detail = all_cards[i].find('div', 'nquyp1l').get_text()
                 all_meta = all_cards[i].find_all('meta')
-                urls = soup.find(itemprop="url").get("content")
-                logger.debug("URL: " + urls if urls else "url: No meta url given")
+
+                if(len(all_meta)==3):
+                    urls = all_meta[2].get("content")
+                    logger.debug("URL: " + urls if urls else "url: No meta url given")
+                else:
+                    urls = soup.find(itemprop="url").get("content")
+                    logger.debug("URL: " + urls if urls else "url: No meta url given")
+
                 is_superHost = all_cards[i].find_all('div', 't1mwk1n0')
                 date_availability = all_cards[i].find_all('div', 'f15liw5s')
                 price = all_cards[i].find_all('span', 'a8jt5op')
@@ -67,11 +73,12 @@ def extraction_by_soup(soup):
                 logger.debug("price: " + str(price[1].get_text()[1:4]))
                 print("price: " + str(price[1].get_text()[1:4]))
                 logger.debug("#### END CARD N [ "+ str(i) +" ] ####")
+                house_airbnb_list.append(house_airbnb)
         except Exception as e:
             print('Error occurred: '+e)
             logger.error('airbnb_extraction.py::extraction_by_soup() - Failed error occurred: ' + str(e))
         finally:
-            return house_airbnb;
+            return house_airbnb_list;
 
 
 def core_extraction( url ):
