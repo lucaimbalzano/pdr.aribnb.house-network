@@ -62,8 +62,7 @@ def extraction_by_soup(soup):
                 date_availability = all_cards[i].find_all('div', 'f15liw5s')
                 price = all_cards[i].find_all('span', 'a8jt5op')
 
-                house_airbnb = Data_immobile(title_card_detail,urls,price, None, None, None, None, None, None)
-
+                house_airbnb = Data_immobile(title_card_detail, urls if urls else "url: No meta url given", str(price[1].get_text()[1:4]), None, None, None, None, None, None)
                 # all_cards[i].find_all('span', 'a8jt5op')[1].get_text()[1:4]
                 logger.debug("price: " + str(price[1].get_text()[1:4]))
                 print("price: " + str(price[1].get_text()[1:4]))

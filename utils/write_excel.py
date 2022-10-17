@@ -11,7 +11,7 @@ import os
 import openpyxl
 from settings.settings import PREFIX_URL_EXCEL 
 
-def write_excel_by_column(start_cell_column,start_cell_row, last_column_index_value, data_to_write, ws):
+def write_excel_by_column(start_cell_column,start_cell_row,  data_to_write, ws):
     # C14:38 
     start_cell = 'C'
     start_cell_row = 14
@@ -22,7 +22,22 @@ def write_excel_by_column(start_cell_column,start_cell_row, last_column_index_va
                 ws.append([data_to_write[page][i].price])    
             else:
                 print("[DEBUG] - url: "+[data_to_write[page][i].url])
-                ws.append(PREFIX_URL_EXCEL + [data_to_write[page][i].url])    
+                ws.append(PREFIX_URL_EXCEL + [data_to_write[page][i].url])   
+                
+                 
+def write_excel_by_column(start_cell_column,start_cell_row, last_column_index_value, data_to_write, ws):
+    # C14:38 
+    start_cell = 'C'
+    start_cell_row = 14
+    for page in range(len(data_to_write)):
+        for i in range(start_cell_row, last_column_index_value):
+            for data_house_index_in_array in range(len(data_to_write[page])):
+                if(i % 2 == 0):
+                    print("[DEBUG] - price: "+str([data_to_write[i].price]))
+                    ws['C'+str(i)] = data_to_write[page].price
+                else:
+                    print("[DEBUG] - url: "+str([data_to_write[page].url]))
+                    ws['C'+str(i)] = PREFIX_URL_EXCEL + data_to_write[page].url
 
     
 
