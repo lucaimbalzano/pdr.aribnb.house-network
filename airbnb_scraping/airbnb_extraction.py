@@ -71,7 +71,6 @@ def extraction_by_soup(soup):
                                              str(price[1].get_text()[1:4]), None, None, None, None, None, None)
                 # all_cards[i].find_all('span', 'a8jt5op')[1].get_text()[1:4]
                 logger.debug("price: " + str(price[1].get_text()[1:4]))
-
                 logger.debug("#### END CARD N [ " + str(i) + " ] ####")
                 house_airbnb_list.append(house_airbnb)
 

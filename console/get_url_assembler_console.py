@@ -145,7 +145,7 @@ def get_link_search_houses_by_input_user_selenium(browser):
     # adults = input('Enter quantity adults: ')
     # print('>> '+ adults)
     # print(' ')
-   
+
     date_checkin = '2022-11-22'
     date_checkout = '2022-11-27'
     adults = '4'
