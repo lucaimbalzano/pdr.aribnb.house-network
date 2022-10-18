@@ -9,27 +9,27 @@ from requests import get
 from console.log.logger import get_logger
 from dto.data_immobile import Data_immobile
 
-
 logger = get_logger()
+
 
 def get_price_by_dirty_format(price_str):
     price = ''
     for elems in price_str:
-        if(elems == '€'):
+        if (elems == '€'):
             return price;
-        if(re.match('^[-+]?[0-9]+$',elems)):
+        if (re.match('^[-+]?[0-9]+$', elems)):
             price = price + elems
 
-def get_all_link_page(soup,url):
-    
-    #TESTS
+
+def get_all_link_page(soup, url):
+    # TESTS
 
     headers = {
-                'User-Agent': 'Mozilla / 5.0(Windows NT 10.0) AppleWebKit / 537.36(KHTML, like Gecko) Chrome / 104.0.0.0 Safari / 537.36'
-        }
-                            # 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
-                             # Mozilla / 5.0(Windows NT 10.0) AppleWebKit / 537.36(KHTML, like Gecko) Chrome / 104.0.0.0 Safari / 537.36
-    res = get(url,headers=headers)
+        'User-Agent': 'Mozilla / 5.0(Windows NT 10.0) AppleWebKit / 537.36(KHTML, like Gecko) Chrome / 104.0.0.0 Safari / 537.36'
+    }
+    # 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
+    # Mozilla / 5.0(Windows NT 10.0) AppleWebKit / 537.36(KHTML, like Gecko) Chrome / 104.0.0.0 Safari / 537.36
+    res = get(url, headers=headers)
     soup = BeautifulSoup(res.text, features="html.parser")
     url_list = soup.find_all("meta", attrs={"itemprop": "url"})
 
@@ -45,19 +45,18 @@ def get_all_link_page(soup,url):
 def extraction_by_soup(soup):
     house_airbnb_list = [];
     html_list = soup.find_all('div', 'gh7uyir')
-    if(html_list != 0 and html_list != None and len(html_list) != 0):
+    if (html_list != 0 and html_list != None and len(html_list) != 0):
         try:
             all_cards = html_list[0].find_all('div', 'c4mnd7m')
             for i in range(len(all_cards)):
-                print("#### CARD N [ " + str(i) + " ] ####")
                 logger.debug("#### CARD N [ " + str(i) + " ] ####")
-                
+
                 cover_card = all_cards[i].find('source').get('srcset')
                 title_card_general = all_cards[i].find('div', 't1jojoys').get_text()
                 title_card_detail = all_cards[i].find('div', 'nquyp1l').get_text()
                 all_meta = all_cards[i].find_all('meta')
 
-                if(len(all_meta)==3):
+                if (len(all_meta) == 3):
                     urls = all_meta[2].get("content")
                     logger.debug("URL: " + urls if urls else "url: No meta url given")
                 else:
@@ -68,19 +67,26 @@ def extraction_by_soup(soup):
                 date_availability = all_cards[i].find_all('div', 'f15liw5s')
                 price = all_cards[i].find_all('span', 'a8jt5op')
 
-                house_airbnb = Data_immobile(title_card_detail, urls if urls else "url: No meta url given", str(price[1].get_text()[1:4]), None, None, None, None, None, None)
+                house_airbnb = Data_immobile(title_card_detail, urls if urls else "url: No meta url given",
+                                             str(price[1].get_text()[1:4]), None, None, None, None, None, None)
                 # all_cards[i].find_all('span', 'a8jt5op')[1].get_text()[1:4]
                 logger.debug("price: " + str(price[1].get_text()[1:4]))
-                print("price: " + str(price[1].get_text()[1:4]))
-                logger.debug("#### END CARD N [ "+ str(i) +" ] ####")
+
+                logger.debug("#### END CARD N [ " + str(i) + " ] ####")
                 house_airbnb_list.append(house_airbnb)
+
         except Exception as e:
-            print('Error occurred: '+e)
+            print('Error occurred: ' + e)
             logger.error('airbnb_extraction.py::extraction_by_soup() - Failed error occurred: ' + str(e))
         finally:
+            print('[DEBUG] - test ----------------------------------------------------------------')
+            for j in range(len(house_airbnb_list)):
+                print('[DEBUG] - '+str(j)+' - PRICE: '+house_airbnb_list[j].price)
+
+            print('[DEBUG] - test ----------------------------------------------------------------')
             return house_airbnb_list;
 
 
-def core_extraction( url ):
-        soup = BeautifulSoup(requests.get(url).content, 'html.parser')
-        return extraction_by_soup(soup)
+def core_extraction(url):
+    soup = BeautifulSoup(requests.get(url).content, 'html.parser')
+    return extraction_by_soup(soup)

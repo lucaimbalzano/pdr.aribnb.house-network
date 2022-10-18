@@ -21,11 +21,11 @@ def write_excel_by_column(start_cell_column,start_cell_row,  data_to_write, ws):
     for page in range(len(data_to_write)):
         for i in range(start_cell_row, page):
             if(i % 2 == 0):
-                print("[DEBUG] - price: "+[data_to_write[page][i].price])
+                # print("[DEBUG] - price: "+[data_to_write[page][i].price])
                 ws.append([data_to_write[page][i].price])    
             else:
                 print("[DEBUG] - url: "+[data_to_write[page][i].url])
-                ws.append(PREFIX_URL_EXCEL + [data_to_write[page][i].url])   
+                # ws.append(PREFIX_URL_EXCEL + [data_to_write[page][i].url])
                 
                  
 def write_excel_by_column(start_cell_column,start_cell_row, last_column_index_value, data_to_write, ws):
@@ -42,27 +42,32 @@ def write_excel_by_column(start_cell_column,start_cell_row, last_column_index_va
     #                 print("[DEBUG] - url: "+str([data_to_write[page].url]))
     #                 ws['C'+str(i)] = PREFIX_URL_EXCEL + data_to_write[page].url
     pages_length = 2
-    for page in (0,pages_length):
-        row = '14'
-        row_index = 14
-        for row_index in range(row_index, last_column_index_value):
-            if(row_index >= last_column_index_value):
-                quit()
-            try:
-                index_house = 0
-                for index_house in range(0, len(data_to_write[page])):
 
-                    house = data_to_write[page][index_house]
-                    if (row_index % 2 == 0):
-                        print("[DEBUG] - price: " + str(house.price))
-                        logger.debug("price: "+str(house.price))
-                        cell_to_write = 'C' + str(row_index)
-                        ws[cell_to_write] = int(house.price)
-                    else:
-                        print("[DEBUG] - url: " + str(house.url))
-                        logger.debug("url: " + str(house.url))
-                        cell_to_write = 'C' + str(row_index)
-                        ws[cell_to_write] = PREFIX_URL_EXCEL + house.url
+    row = '14'
+    row_index = 14
+
+    print('[DEBUG] - rowIndex : 14, '+ str(len(data_to_write)*len(data_to_write[0])))
+    for row_index in range(row_index, len(data_to_write)*len(data_to_write[0])):
+            try:
+                for page in (0, pages_length):
+                    for index_house in range(0, len(data_to_write[page])):
+                        current_index_house = index_house
+                        house = data_to_write[page][index_house]
+
+                        if (row_index % 2 == 0):
+                            # print("[DEBUG] - price: " + str(house.price))
+                            logger.debug("price: "+str(house.price))
+                            index_house = row_index + index_house
+                            cell_to_write = 'C' + str(index_house)
+                            ws[cell_to_write] = int(house.price)
+                        else:
+                            # print("[DEBUG] - url: " + str(house.url))
+                            logger.debug("url: " + str(house.url))
+                            index_house = row_index + index_house
+                            cell_to_write = 'C' + str(row_index)
+                            ws[cell_to_write] = PREFIX_URL_EXCEL + house.url
+
+                        index_house = current_index_house
 
             except Exception as e:
                 print("write-excel::write_excel_by_column - Error Occured: "+str(e))
