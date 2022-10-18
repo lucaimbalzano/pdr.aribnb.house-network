@@ -2,11 +2,17 @@
 #
 # - @lucaimbalzano
 
+
+from dto.checkin_checkout import Checkin_checkout
+from dto.input_data import InputConsole
+import datetime
 import urllib3
 import settings
 import requests
 from airbnb_url.url_assembler import url_to_search_master_assembler, url_to_search_master_assembler_selenium
 from airbnb_url.url_assembler_selenium import get_next_page, get_search_address
+from utils.utils_date import get_range_time_stays, get_range_time_by_stays_and_stays_3MONTH, \
+    get_range_time_by_stays_and_stays_6MONTH
 
 
 def get_link_search_houses_by_input_user():
@@ -113,50 +119,91 @@ def get_link_search_houses_by_input_user():
     return url_to_search_master_assembler(settings.BASE_URL,address,street_number,city,province,state, date_checkin,date_checkout, lat, lng, adults)
 
 
+def get_check_inout_list(stays):
+    checkin_checkout1M = get_range_time_stays(datetime.date.today(),stays)
+    checkin_checkout3M = get_range_time_by_stays_and_stays_3MONTH(checkin_checkout1M.date_checkout,stays)
+    print('checkin_checkout1M.date_checkout: '+str(checkin_checkout1M.date_checkout))
+    checkin_checkout6M = get_range_time_by_stays_and_stays_6MONTH(checkin_checkout3M.date_checkout,stays)
+    check_inout_list = [checkin_checkout1M,checkin_checkout3M, checkin_checkout6M]
+    return check_inout_list
+
+
+
+def get_input_console_checkin_checkout():
+    date_checkin = input('Enter the checkin date: ')
+    print('>> ' + date_checkin)
+    print(' ')
+    date_checkout = input('Enter the checkout date: ')
+    print('>> ' + date_checkout)
+    print(' ')
+    return Checkin_checkout(date_checkin,date_checkout)
+
+def get_input_console_checkin_checkout_optional(stays):
+    check_inout_list = []
+    print('format date to enter: YEAR-MONTH-DAY')
+    print('enter "x" if you want to write by your own')
+    print('or write any key...')
+    variable = input('>')
+    if(variable == "x"):
+        for i in range(0,2):
+           checkin_checkout = get_input_console_checkin_checkout()
+           check_inout_list.append(checkin_checkout)
+    else:
+        print('[DEBUG] - CHOOSEN DEFAULT OPT : CHECK-IN-OUT')
+        check_inout_list = get_check_inout_list(stays)
+
+
+def get_input_console_stays_optional():
+    stays = 0
+    print('Default stays: '+str(3))
+    print('enter "x" if you want change stays')
+    print('or write any key...')
+    variable = input('>')
+    print(' ')
+    if(variable == "x"):
+        return variable
+    else:
+        return 3
 
 
 
 
-def get_link_search_houses_by_input_user_selenium(browser):
+
+def get_input_console(browser):
     print(' ')
     print('**enter all the answers in italian language**')
-    print('::QUESTIONS::')
-    print('::ADDRESS')
-    print('::STREET NUMBER')
-    print('::CITY')
-    print('::PROVINCE')
-    print('::STATE')
-    print('::CHECKIN')
-    print('::CHECKOUT')
-    print(' ')
+    # print('::QUESTIONS::')
+    # print('::ADDRESS')
+    # print('::STREET NUMBER')
+    # print('::CITY')
+    # print('::PROVINCE')
+    # print('::STATE')
+    # print('::CHECKIN')
+    # print('::CHECKOUT')
+    # print(' ')
     # print('example of address: ')
     # print('>> Via Ugo Betti 22, Milano, MI Italia')
     # print('>> Corso Sano Gottardo 20, Milano, MI Italia')
     # address = input('Enter the address: ')
     # print('>> '+address)
     # print(' ')
-    # print('format date to enter: YEAR-MONTH-DAY')
-    # date_checkin = input('Enter the checkin date: ')
-    # print('>> '+ date_checkin)
-    # print(' ')
-    # date_checkout = input('Enter the checkout date: ')
-    # print('>> '+ date_checkout)
-    # print(' ')
     # adults = input('Enter quantity adults: ')
     # print('>> '+ adults)
     # print(' ')
+    stays = get_input_console_stays_optional()
+    check_inout_list = get_input_console_checkin_checkout_optional(stays)
 
-    date_checkin = '2022-11-22'
-    date_checkout = '2022-11-27'
+    print('LOADING %')
+    #TODO delete
+    stays = 3
     adults = '4'
-    # address_lat_lng = 'Via Ugo Betti 22, Milano, MI Italia'
-    address_lat_lng = 'Via Paolo Sarpi 10, Milano, MI Italia'
-    address = get_search_address(browser, address_lat_lng)
+    address = 'Via Paolo Sarpi 10, Milano, MI Italia'
+    address = get_search_address(browser, address)
 
-    # urllib3.parse.quote(address)
-    url = 'https://nominatim.openstreetmap.org/search/' + address_lat_lng +'?format=json'
+    url = 'https://nominatim.openstreetmap.org/search/' + address + '?format=json'
     response = requests.get(url).json()
     lat = response[0]["lat"]
     lng = response[0]["lon"]
 
-    return url_to_search_master_assembler_selenium(address, date_checkin,date_checkout, lat, lng, adults)
+    return InputConsole(address,check_inout_list,adults, lat, lng)
+

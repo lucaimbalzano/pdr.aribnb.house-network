@@ -15,3 +15,6 @@ class Checkin_checkout:
 
   def __setattr__(self, date_checkin: str, date_checkout: str) -> None:
     super().__setattr__(date_checkin, date_checkout)
+
+  def __setattr__(self, date_checkin: int, date_checkout: int) -> None:
+    super().__setattr__(date_checkin, date_checkout)

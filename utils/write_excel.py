@@ -26,7 +26,7 @@ def write_excel_by_column_deprecated(start_cell_column,start_cell_row,  data_to_
                 # ws.append(PREFIX_URL_EXCEL + [data_to_write[page][i].url])
                 
                  
-def write_excel_by_column(row_index, house_list_container, ws):
+def write_excel_by_column(row_index, house_list_container, ws, letter):
     house_list_container_index = len(house_list_container) - 1
     # for row_index in range(row_index, len(house_list_container)*len(house_list_container[0])):
     try:
@@ -37,11 +37,11 @@ def write_excel_by_column(row_index, house_list_container, ws):
                 row_index = row_index + 1
                 if (row_index % 2 == 0):
                     logger.debug("price: "+str(house.price))
-                    cell_to_write = 'C' + str(row_index)
+                    cell_to_write = letter + str(row_index)
                     ws[cell_to_write] = int(house.price)
                 else:
                     logger.debug("url: " + str(house.url))
-                    cell_to_write = 'C' + str(row_index)
+                    cell_to_write = letter + str(row_index)
                     ws[cell_to_write] = PREFIX_URL_EXCEL + house.url
 
     except Exception as e:
@@ -53,7 +53,7 @@ def write_excel_by_column(row_index, house_list_container, ws):
 
 
 
-def write_excel_by_data_retrived(houses_airbnb):
+def write_excel_by_data_retrived(houses_airbnb,letter ):
     path = "C:\\Users\\lucai\\Documents\\Workspaces\\house-network\\pdr.aribnb.house-network\\media\\2STANDARD_PianoDiRendimento.xlsx"
     
     wb = openpyxl.load_workbook(path)
@@ -63,7 +63,8 @@ def write_excel_by_data_retrived(houses_airbnb):
     # 1MONTH  1MONTHWEEK 3MONTH  3MONTHWEEK 6MONTH  6MONTHWEEK   
     # C14:38  D14:38     E14:38   F14:38    G14:38  H14:38    [X14:76]
 
-    write_excel_by_column( 13,houses_airbnb,ws )
+
+    write_excel_by_column( 13,houses_airbnb,ws, letter )
 
     assert os.path.isfile(path)
     wb.save(path)
