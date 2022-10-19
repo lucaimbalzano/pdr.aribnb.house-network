@@ -54,21 +54,27 @@ def write_excel_by_column(row_index, house_list_container, ws, letter):
     finally:
         None
 
+def open_excel(path):
+    wb = openpyxl.load_workbook(path)
+    return wb
 
+def close_excel(path, wb):
+    assert os.path.isfile(path)
+    if ( wb is None):
+        logger.error('Error occurred - Workbook excel is None')
+        print('Error occurred - Workbook excel is None')
+    wb.save(path)
+    wb.close()
 
-def write_excel_by_data_retrived(houses_airbnb, letter):
-    path = "C:\\Users\\lucai\\Documents\\Workspaces\\house-network\\pdr.aribnb.house-network\\media\\2STANDARD_PianoDiRendimento.xlsx"
-    
+def write_excel_by_data_retrived(houses_airbnb, letter, wb):
+    path = "C:\\Users\\lucai\\Documents\\Workspaces\\house-network\\pdr.aribnb.house-network\\media\\3_STANDARD_PianoDiRendimentoy.xlsx"
     wb = openpyxl.load_workbook(path)
     ws = wb['Raccolta_Dati_Airbnb_0']
 
 
-    # 1MONTH  1MONTHWEEK 3MONTH  3MONTHWEEK 6MONTH  6MONTHWEEK   
+    # 1MONTH  1MONTHWEEK 3MONTH  3MONTHWEEK 6MONTH  6MONTHWEEK
     # C14:38  D14:38     E14:38   F14:38    G14:38  H14:38    [X14:76]
-
-
     write_excel_by_column( 13,houses_airbnb,ws, letter )
 
-    assert os.path.isfile(path)
     wb.save(path)
     wb.close()

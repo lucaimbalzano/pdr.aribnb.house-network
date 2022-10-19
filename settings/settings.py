@@ -11,6 +11,8 @@ BASE_URL = 'https://www.airbnb.it/s/'
 
 PREFIX_URL_EXCEL =  '⬆️ LINK BNB: '
 
+PATH_EXCEL = "C:\\Users\\lucai\\Documents\\Workspaces\\house-network\\pdr.aribnb.house-network\\media\\2STANDARD_PianoDiRendimento.xlsx"
+
 #NWSE VALUES
 #MOVE TO NORD
 NORD_NWSE_OPERATIONS = [1,1,1,1]
