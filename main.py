@@ -2,7 +2,11 @@
 # Dreams without Goals are just Dreams
 #
 # - @lucaimbalzano
+
+
+
 import calendar
+import parser
 import traceback
 from logging import DEBUG, Logger
 import logging
@@ -10,7 +14,7 @@ from math import lgamma
 from pickletools import optimize
 import sys
 import requests
-import urllib.parse
+from dateutil import parser
 from airbnb_url.url_assembler import url_to_search_master_assembler_selenium
 from airbnb_url.url_assembler_selenium import get_next_page, get_page2, get_page3, get_search_address
 from console.get_url_assembler_console import get_input_console
@@ -38,6 +42,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 
+from utils.utils_date import get_date_data_by_str
+
 logger = get_logger()
 houses_airbnb = []
 
@@ -47,6 +53,8 @@ def get_options_web_driver():
     options.add_argument("--incognito");
     options.add_experimental_option("excludeSwitches", ["enable-logging"])
     return options
+
+
 
 
 if __name__ == '__main__':
@@ -60,6 +68,7 @@ if __name__ == '__main__':
     browser = webdriver.Chrome('C:/Users/lucai/Documents/Utils/SW/WebDriver/106/0.5249.61/chromedriver.exe', chrome_options=options)
     browser.get('https://www.airbnb.com')
 
+
     try:
 
         # 1MONTH  1MONTHWEEK 3MONTH  3MONTHWEEK 6MONTH  6MONTHWEEK
@@ -67,8 +76,14 @@ if __name__ == '__main__':
 
         CELL_COLUMN_TO_FILL = ['C','D','E','F','G','H']
 
-        # url_retrived = get_link_search_houses_by_input_user_selenium(browser)
-                            # insideofupper: return
+
+
+        #TEEEEST
+
+
+
+
+        #TESTTT
 
 
         input_console_data = get_input_console(browser)

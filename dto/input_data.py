@@ -1,3 +1,7 @@
+# Dreams without Goals are just Dreams
+#
+# - @lucaimbalzano
+
 
 
 import datetime
@@ -9,7 +13,7 @@ class InputConsole:
   checkin_checkout = Checkin_checkout(datetime.date.today(),datetime.date.today())
   check_inout_list.append(checkin_checkout)
   def __init__(self,address,check_inout_list,adults, lat, lng):
-    self.name = address
+    self.address = address
     self.check_inout_list = check_inout_list
     self.adults = adults
     self.lat = lat

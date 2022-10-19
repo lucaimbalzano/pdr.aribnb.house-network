@@ -1,3 +1,8 @@
+# Dreams without Goals are just Dreams
+#
+# - @lucaimbalzano
+
+
 import settings.settings_date
 from dto.month import Month
 
