@@ -175,33 +175,33 @@ def get_input_console_stays_optional():
 def get_input_console(browser):
     print(' ')
     print('**enter all the answers in italian language**')
-    # print('::QUESTIONS::')
-    # print('::ADDRESS')
-    # print('::STREET NUMBER')
-    # print('::CITY')
-    # print('::PROVINCE')
-    # print('::STATE')
-    # print('::CHECKIN')
-    # print('::CHECKOUT')
-    # print(' ')
-    # print('example of address: ')
-    # print('>> Via Ugo Betti 22, Milano, MI Italia')
-    # print('>> Corso Sano Gottardo 20, Milano, MI Italia')
-    # address = input('Enter the address: ')
-    # print('>> '+address)
-    # print(' ')
-    # adults = input('Enter quantity adults: ')
-    # print('>> '+ adults)
-    # print(' ')
+    print('::QUESTIONS::')
+    print('::ADDRESS')
+    print('::STREET NUMBER')
+    print('::CITY')
+    print('::PROVINCE')
+    print('::STATE')
+    print('::CHECKIN')
+    print('::CHECKOUT')
+    print(' ')
+    print('example of address: ')
+    print('>> Via Ugo Betti 22, Milano, MI Italia')
+    print('>> Corso Sano Gottardo 20, Milano, MI Italia')
+    address = input('Enter the address: ')
+    print('>> '+address)
+    print(' ')
+    adults = input('Enter quantity adults: ')
+    print('>> '+ adults)
+    print(' ')
+
     stays = get_input_console_stays_optional()
     check_inout_list = get_input_console_checkin_checkout_optional(stays)
 
+    print(' ')
+    print(' ')
     print('LOADING YOUR REQUEST ..%')
     print(' ')
-    #TODO delete
-    stays = 3
-    adults = '4'
-    address = 'Via Paolo Sarpi 10, Milano, MI Italia'
+
 
     url = 'https://nominatim.openstreetmap.org/search/' + address + '?format=json'
     response = requests.get(url).json()

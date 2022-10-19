@@ -1,4 +1,4 @@
-# pdr.airbnb.house-network <img src="https://user-images.githubusercontent.com/45575898/192071990-b839fbcc-9f7c-45a0-b839-95b2698250bf.png" width="60" height="60" /><img src="https://user-images.githubusercontent.com/45575898/192070406-645310f5-c157-4beb-a964-cfc94a118d62.png" width="50" height="50" />
+# V001 - pdr.airbnb.house-network <img src="https://user-images.githubusercontent.com/45575898/192071990-b839fbcc-9f7c-45a0-b839-95b2698250bf.png" width="60" height="60" /><img src="https://user-images.githubusercontent.com/45575898/192070406-645310f5-c157-4beb-a964-cfc94a118d62.png" width="50" height="50" />
 
 
 PDR - Piano Di Rendimento - per airbnb
@@ -14,7 +14,7 @@ create virtual environment
 
 ```
 $ python3 -m venv env
-$ .\env\Scripts\activate 
+$ .\env\Scripts\activate    
 exit with keyword: deactivate
 ```
 or 

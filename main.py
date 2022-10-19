@@ -68,8 +68,8 @@ if __name__ == '__main__':
                         url = get_page3(url_retrived)
                         print('[DEBUG] url page 3: ' + url +  ', CHECKIN: ' + input_console_data.check_inout_list[i_url_based_checkinout_and_cell_row].date_checkin + ', CHECKOUT: '+input_console_data.check_inout_list[i_url_based_checkinout_and_cell_row].date_checkout)
                         houses_airbnb.append(core_extraction(url))
-                                                                                                        # TODO delete : None
-                write_excel.write_excel_by_data_retrived(houses_airbnb, CELL_COLUMN_TO_FILL[i_url_based_checkinout_and_cell_row],None)
+                if( houses_airbnb is not None):                                                                                        # TODO delete : None
+                    write_excel.write_excel_by_data_retrived(houses_airbnb, CELL_COLUMN_TO_FILL[i_url_based_checkinout_and_cell_row],None)
                 houses_airbnb = []
 
     except Exception as e:
