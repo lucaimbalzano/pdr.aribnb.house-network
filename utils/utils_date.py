@@ -19,9 +19,16 @@ from console.log.logger import get_logger
 logger = get_logger()
 
 
+
+
+
+
 def get_stays_missing_until_friday(current_date):
     day_name = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-    day = datetime.datetime.strptime(current_date, '%Y-%m-%d').weekday()
+    if isinstance(current_date, Checkin_checkout):
+        day = datetime.datetime.strptime(str(current_date.date_checkout), '%Y-%m-%d').weekday()
+    else:
+        day = datetime.datetime.strptime(current_date, '%Y-%m-%d').weekday()
     stays = 0
 
     if(day_name[day] == 'Monday'):
@@ -39,6 +46,35 @@ def get_stays_missing_until_friday(current_date):
     print('[DEBUG] day: ' + day_name[day] + ', stays until friday = ' + str(stays))
     logger.debug('[DEBUG] day: '+ day_name[day]+', stays until friday = '+str(stays))
     return stays
+
+
+def get_stays_missing_last_monday(current_date):
+    day_name = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    if isinstance(current_date, Checkin_checkout):
+        day = datetime.datetime.strptime(str(current_date.date_checkout), '%Y-%m-%d').weekday()
+    else:
+        day = datetime.datetime.strptime(current_date, '%Y-%m-%d').weekday()
+    stays = 0
+
+    if(day_name[day] == 'Monday'):
+        stays = 0
+    if(day_name[day] == 'Tuesday'):
+        stays = 1
+    if (day_name[day] == 'Wednesday'):
+        stays = 2
+    if (day_name[day] == 'Thursday'):
+        stays = 3
+    if (day_name[day] == 'Friday'):
+        stays = 4
+    if (day_name[day] == 'Saturday'):
+        stays = 5
+    if (day_name[day] == 'Sunday'):
+        stays = 6
+
+    print('[DEBUG] day: '+ day_name[day]+', stays until last monday = '+str(stays))
+    logger.debug('[DEBUG] day: '+ day_name[day]+', stays until last monday = '+str(stays))
+    return stays
+
 
 def get_clean_date_by_str(date_str):
     date_splitted = date_str.split(' ')
@@ -91,7 +127,10 @@ def get_date_data_by_str(data_str):
 def get_range_time_stays(date_param, stays):
     checkin = None
     checkout = None
-    data_checkin_date = get_date_data_by_str(get_clean_date_by_str(str(date_param)))
+    if isinstance(date_param, Checkin_checkout):
+        data_checkin_date = get_date_data_by_str(get_clean_date_by_str(str(date_param.date_checkout)))
+    else:
+        data_checkin_date = get_date_data_by_str(get_clean_date_by_str(str(date_param)))
     checkout = data_checkin_date + timedelta(days=stays)
     return Checkin_checkout(str(data_checkin_date), str(checkout))
 
@@ -107,62 +146,56 @@ def get_range_time_by_stays_and_stays_6MONTH(date_param, stays):
 
 
 
-class Utils_date:
 
-    def get_date_by_today():
-        dates_checking_checkout_master = []
-        dates_checkin_checkout = Checkin_checkout('2022-11-22', '2022-11-27')
-        dates_checking_checkout_master.append(dates_checkin_checkout)
-        dates_checkin_checkout = Checkin_checkout('2022-11-22', '2022-11-27')
-        dates_checking_checkout_master.append(dates_checkin_checkout)
-        dates_checkin_checkout = Checkin_checkout('2022-11-22', '2022-11-27')
-        dates_checking_checkout_master.append(dates_checkin_checkout)
+def get_checkin_checkout_WEEK_numM(current_date, stays):
+    stays_until_friday = get_stays_missing_until_friday(current_date)
 
-        date_checkin = '2022-11-22'
-        date_checkout = '2022-11-27'
+    begin_date_from_friday = get_range_time_stays(current_date,stays_until_friday).date_checkout
+    print('[DEBUG] days to FRIDAY:::::::::::::::: '+str(get_stays_missing_until_friday(begin_date_from_friday)))
+    stays = stays -1
+    checkin_checkout = get_range_time_stays(begin_date_from_friday,stays)
+    return checkin_checkout;
 
 
-    def get_last_day_of_the_month(currentDate):
-        return datetime.date(currentDate.year, currentDate.month,
-                             calendar.monthrange(currentDate.year, currentDate.month)[1])
-
-
-    def get_array_three_days_checkin_checkout(ymd_current, stays_days):
-        checking_checkout = []
-        checking_checkout = get_checkin_checkout_days()
-        calendar = get_calendar_filled()
-        if(ymd_current[2] < get_last_day_of_the_month(datetime.date.today())):
-            for index_stays_days in range(1,get_last_day_of_the_month(datetime.date.today())):
-                for index_month in range(1,13):
-                    for index_day in range(1,):
-
-                        return
-                return
-
-        return
-
-    # def get_array_three_days_checkin_checkout(ymd_current, stays_days):
-    #     checking_checkout = []
-    #     checking_checkout = get_checkin_checkout_days()
-    #     calendar = get_calendar_filled()
-    #     for i in range (ymd_current[1],31):
-    #         if(ymd_current[2] < get_last_day_of_the_month(datetime.date.today())):
-    #             for index_stays_days in range(1,get_last_day_of_the_month(datetime.date.today())):
-    #                 for index_month in range(1,13):
-    #                     for index_day in range(1,):
-    #
-    #                         return
-    #                 return
-    #
-    #         return
+def get_checkin_checkout_INFRA_numM(current_date, stays):
+    stays_until_monday = get_stays_missing_last_monday(current_date)
+    begin_date_from_monday = get_range_time_stays(current_date, -stays_until_monday).date_checkout
+    print('[DEBUG] days to MONDAY:::::::::::::::: ' + str(get_stays_missing_until_friday(begin_date_from_monday)))
+    checkin_checkout = get_range_time_stays(begin_date_from_monday, stays)
+    return checkin_checkout
 
 
 
+def get_check_inout_list(stays):
+    today = datetime.date.today()
+
+    today_plus_month = get_range_time_stays(datetime.date.today(),30)
+    checkin_checkout1M = get_range_time_stays(today_plus_month.date_checkout, stays)
+    checkin_checkout1M_INFRA = get_checkin_checkout_INFRA_numM(checkin_checkout1M.date_checkin, stays)
+    checkin_checkout1M_WEEK = get_checkin_checkout_WEEK_numM(checkin_checkout1M_INFRA.date_checkout, stays)
+
+    today_plus_3month = get_range_time_by_stays_and_stays_3MONTH(str(today),stays)
+    checkin_checkout3M = get_range_time_stays(today_plus_3month.date_checkout, stays)
+    checkin_checkout3M_INFRA = get_checkin_checkout_INFRA_numM(checkin_checkout3M.date_checkin, stays)
+    checkin_checkout3M_WEEK = get_checkin_checkout_WEEK_numM(checkin_checkout3M_INFRA.date_checkout, stays)
+
+    today_plus_6month = get_range_time_by_stays_and_stays_6MONTH(str(today), stays)
+    checkin_checkout6M = get_range_time_stays(today_plus_6month.date_checkout, stays)
+    checkin_checkout6M_INFRA = get_checkin_checkout_INFRA_numM(checkin_checkout6M.date_checkin, stays)
+    checkin_checkout6M_WEEK = get_checkin_checkout_WEEK_numM(checkin_checkout6M_INFRA.date_checkout, stays)
+
+
+    check_inout_list = [checkin_checkout1M_INFRA,checkin_checkout1M_WEEK,
+                        checkin_checkout3M_INFRA, checkin_checkout3M_WEEK,
+                        checkin_checkout6M_INFRA, checkin_checkout6M_WEEK]
+
+    return check_inout_list
 
 
 
-
-
+def get_last_day_of_the_month(currentDate):
+     return datetime.date(currentDate.year, currentDate.month,
+                         calendar.monthrange(currentDate.year, currentDate.month)[1])
 
 
 

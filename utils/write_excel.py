@@ -56,7 +56,7 @@ def write_excel_by_column(row_index, house_list_container, ws, letter):
 
 
 
-def write_excel_by_data_retrived(houses_airbnb,letter ):
+def write_excel_by_data_retrived(houses_airbnb, letter):
     path = "C:\\Users\\lucai\\Documents\\Workspaces\\house-network\\pdr.aribnb.house-network\\media\\2STANDARD_PianoDiRendimento.xlsx"
     
     wb = openpyxl.load_workbook(path)

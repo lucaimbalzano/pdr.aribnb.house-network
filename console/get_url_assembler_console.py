@@ -12,7 +12,7 @@ import requests
 from airbnb_url.url_assembler import url_to_search_master_assembler, url_to_search_master_assembler_selenium
 from airbnb_url.url_assembler_selenium import get_next_page, get_search_address
 from utils.utils_date import get_range_time_stays, get_range_time_by_stays_and_stays_3MONTH, \
-    get_range_time_by_stays_and_stays_6MONTH, get_stays_missing_until_friday
+    get_range_time_by_stays_and_stays_6MONTH, get_stays_missing_until_friday, get_check_inout_list
 
 
 def get_link_search_houses_by_input_user():
@@ -118,29 +118,6 @@ def get_link_search_houses_by_input_user():
 
     return url_to_search_master_assembler(settings.BASE_URL,address,street_number,city,province,state, date_checkin,date_checkout, lat, lng, adults)
 
-
-def get_checkin_checkout_infra_numM(current_date, stays):
-    stays_until_friday = get_stays_missing_until_friday(current_date)
-
-    begin_date_from_friday = get_range_time_stays(current_date,stays_until_friday).date_checkout
-    print('[DEBUG] days to FRIDAY:::::::::::::::: '+str(get_stays_missing_until_friday(begin_date_from_friday)))
-    checkin_checkout = get_range_time_stays(current_date,stays)
-    return checkin_checkout;
-
-def get_check_inout_list(stays):
-    checkin_checkout1M = get_range_time_stays(datetime.date.today(),stays)
-    checkin_checkout1M_INFRA = get_checkin_checkout_infra_numM(checkin_checkout1M, stays)
-
-    begin_date_3M = get_range_time_by_stays_and_stays_3MONTH(checkin_checkout1M.date_checkout,stays).date_checkout
-    checkin_checkout3M = get_range_time_stays(begin_date_3M, stays)
-    checkin_checkout3M_INFRA = get_checkin_checkout_infra_numM(checkin_checkout3M, stays)
-
-    begin_date_6M = get_range_time_by_stays_and_stays_6MONTH(checkin_checkout3M.date_checkout,stays).date_checkout
-    checkin_checkout6M = get_range_time_stays(begin_date_6M, stays)
-    checkin_checkout6M_INFRA =get_checkin_checkout_infra_numM(checkin_checkout6M, stays)
-
-    check_inout_list = [checkin_checkout1M,checkin_checkout1M_INFRA,checkin_checkout3M, checkin_checkout3M_INFRA, checkin_checkout6M, checkin_checkout6M_INFRA]
-    return check_inout_list
 
 
 
@@ -232,6 +209,6 @@ def get_input_console(browser):
     lng = response[0]["lon"]
 
     address = get_search_address(browser, address)
-
-    return InputConsole(address,check_inout_list,adults, lat, lng)
+    input_data = InputConsole(address, check_inout_list, adults, lat, lng)
+    return input_data
 

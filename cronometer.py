@@ -45,6 +45,9 @@ class ChronoMeter():
     """
 
     def print_time(self):
+        print(" ")
+        print(" ")
+        print(" ")
         print("[ TIME-EXECUTION ]")
         print(f"[ MILLISECONDS: {self.get_execution_time()} ms ]")
         print(f"[ SECONDS {self.get_execution_time()/1000} s ]")

@@ -9,7 +9,7 @@ from typing import Any
 
 class Checkin_checkout:
   def __init__(self,date_checkin, date_checkout):
-    self.date_checking = date_checkin
+    self.date_checkin = date_checkin
     self.date_checkout = date_checkout
 
 
