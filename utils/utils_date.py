@@ -43,7 +43,7 @@ def get_stays_missing_until_friday(current_date):
         stays = -1
     if (day_name[day] == 'Sunday'):
         stays = -2
-    print('[DEBUG] day: ' + day_name[day] + ', stays until friday = ' + str(stays))
+
     logger.debug('[DEBUG] day: '+ day_name[day]+', stays until friday = '+str(stays))
     return stays
 
@@ -71,7 +71,6 @@ def get_stays_missing_last_monday(current_date):
     if (day_name[day] == 'Sunday'):
         stays = 6
 
-    print('[DEBUG] day: '+ day_name[day]+', stays until last monday = '+str(stays))
     logger.debug('[DEBUG] day: '+ day_name[day]+', stays until last monday = '+str(stays))
     return stays
 
@@ -151,7 +150,6 @@ def get_checkin_checkout_WEEK_numM(current_date, stays):
     stays_until_friday = get_stays_missing_until_friday(current_date)
 
     begin_date_from_friday = get_range_time_stays(current_date,stays_until_friday).date_checkout
-    print('[DEBUG] days to FRIDAY:::::::::::::::: '+str(get_stays_missing_until_friday(begin_date_from_friday)))
     stays = stays -1
     checkin_checkout = get_range_time_stays(begin_date_from_friday,stays)
     return checkin_checkout;
@@ -160,7 +158,6 @@ def get_checkin_checkout_WEEK_numM(current_date, stays):
 def get_checkin_checkout_INFRA_numM(current_date, stays):
     stays_until_monday = get_stays_missing_last_monday(current_date)
     begin_date_from_monday = get_range_time_stays(current_date, -stays_until_monday).date_checkout
-    print('[DEBUG] days to MONDAY:::::::::::::::: ' + str(get_stays_missing_until_friday(begin_date_from_monday)))
     checkin_checkout = get_range_time_stays(begin_date_from_monday, stays)
     return checkin_checkout
 

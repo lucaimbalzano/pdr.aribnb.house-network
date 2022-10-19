@@ -51,9 +51,7 @@ def get_search_address(browser,url):
     return str(browser.current_url)
 
 def get_page2(url):
-    print('[DEBUG] - PAGE2:: '+url+page2)
     return url + page2;
 
 def get_page3(url):
-    print('[DEBUG] - PAGE3:: '+url+page3)
     return url + page3;

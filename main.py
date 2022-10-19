@@ -45,28 +45,31 @@ if __name__ == '__main__':
     try:
         input_console_data = get_input_console(browser)
         # workbook_excel_open = open_excel(settings.settings.PATH_EXCEL)
-        # print('X')
-        # time.sleep(4)
 
-        for i_letter_cell in range(0,len(CELL_COLUMN_TO_FILL)-1):
-            for i_url_based_checkinout in range(0, len(input_console_data.check_inout_list)-1):
+
+        for i_url_based_checkinout_and_cell_row in range(0, len(input_console_data.check_inout_list)):
+                print('[DEBUG] - LETTER: ' + CELL_COLUMN_TO_FILL[i_url_based_checkinout_and_cell_row] + ' ::=====================================================')
                 url_retrived = url_to_search_master_assembler_selenium(input_console_data.address,
-                                                                       input_console_data.check_inout_list[i_url_based_checkinout].date_checkin,
-                                                                       input_console_data.check_inout_list[i_url_based_checkinout].date_checkout,
+                                                                       input_console_data.check_inout_list[i_url_based_checkinout_and_cell_row].date_checkin,
+                                                                       input_console_data.check_inout_list[i_url_based_checkinout_and_cell_row].date_checkout,
                                                                        input_console_data.lat, input_console_data.lng,
                                                                        input_console_data.adults)
                 #TODO i'll change with a dinamic number
+
                 for i in range(0,3):
                     if (i == 0):
-                       houses_airbnb.append(core_extraction(url_retrived))
+                        print('[DEBUG] url page 1: ' + url_retrived)
+                        houses_airbnb.append(core_extraction(url_retrived))
                     if (i == 1):
                         url = get_page2(url_retrived)
                         houses_airbnb.append(core_extraction(url))
+                        print('[DEBUG] url page 2: ' + url +  ', CHECKIN: ' + input_console_data.check_inout_list[i_url_based_checkinout_and_cell_row].date_checkin + ', CHECKOUT: '+input_console_data.check_inout_list[i_url_based_checkinout_and_cell_row].date_checkout)
                     if(i == 2):
                         url = get_page3(url_retrived)
+                        print('[DEBUG] url page 3: ' + url +  ', CHECKIN: ' + input_console_data.check_inout_list[i_url_based_checkinout_and_cell_row].date_checkin + ', CHECKOUT: '+input_console_data.check_inout_list[i_url_based_checkinout_and_cell_row].date_checkout)
                         houses_airbnb.append(core_extraction(url))
-
-                write_excel.write_excel_by_data_retrived(houses_airbnb, CELL_COLUMN_TO_FILL[i_letter_cell],None)
+                                                                                                        # TODO delete : None
+                write_excel.write_excel_by_data_retrived(houses_airbnb, CELL_COLUMN_TO_FILL[i_url_based_checkinout_and_cell_row],None)
                 houses_airbnb = []
 
     except Exception as e:

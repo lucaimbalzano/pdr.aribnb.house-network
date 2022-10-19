@@ -44,6 +44,7 @@ def get_all_link_page(soup, url):
 
 def extraction_by_soup(soup):
     house_airbnb_list = [];
+    house_airbnb = None
     html_list = soup.find_all('div', 'gh7uyir')
     if (html_list != 0 and html_list != None and len(html_list) != 0):
         try:
@@ -66,24 +67,24 @@ def extraction_by_soup(soup):
                 is_superHost = all_cards[i].find_all('div', 't1mwk1n0')
                 date_availability = all_cards[i].find_all('div', 'f15liw5s')
                 price = all_cards[i].find_all('span', 'a8jt5op')
-                if(len(str(price[1].get_text()[1:4]).split(',')) > 1):
-                    print('X')
-                house_airbnb = Data_immobile(title_card_detail, urls if urls else "url: No meta url given",
-                                             str(price[1].get_text()[1:4]), None, None, None, None, None, None)
-                # all_cards[i].find_all('span', 'a8jt5op')[1].get_text()[1:4]
-                logger.debug("price: " + str(price[1].get_text()[1:4]))
-                logger.debug("#### END CARD N [ " + str(i) + " ] ####")
+                if (len(str(price[1].get_text()[1:4]).split(',')) > 1):
+                    print('[ERROR] - price up to 1K, price: ' + str(price[1].get_text()))
+                    price = str(price[1].get_text()[1:6]).split(',')[0] + str(price[1].get_text()[1:6]).split(',')[1]
+                else:
+                    price = str(price[1].get_text()[1:4])
+
+                house_airbnb = Data_immobile(title_card_detail,
+                                             urls if urls else "url: No meta url given",
+                                             price, None, None, None, None, None, None)
                 house_airbnb_list.append(house_airbnb)
+                # all_cards[i].find_all('span', 'a8jt5op')[1].get_text()[1:4]
+                logger.debug("price: " + price)
+                logger.debug("#### END CARD N [ " + str(i) + " ] ####")
 
         except Exception as e:
             print('Error occurred: ' + e)
             logger.error('airbnb_extraction.py::extraction_by_soup() - Failed error occurred: ' + str(e))
         finally:
-            print('[DEBUG] - test ----------------------------------------------------------------')
-            for j in range(len(house_airbnb_list)):
-                print('[DEBUG] - '+str(j)+' - PRICE: '+house_airbnb_list[j].price)
-
-            print('[DEBUG] - test ----------------------------------------------------------------')
             return house_airbnb_list;
 
 

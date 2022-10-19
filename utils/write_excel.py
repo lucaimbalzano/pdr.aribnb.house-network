@@ -26,14 +26,14 @@ def write_excel_by_column_deprecated(start_cell_column,start_cell_row,  data_to_
                 ws.append([data_to_write[page][i].price])    
             else:
                 print("[DEBUG] - url: "+[data_to_write[page][i].url])
-                # ws.append(PREFIX_URL_EXCEL + [data_to_write[page][i].url])
+                ws.append(PREFIX_URL_EXCEL + [data_to_write[page][i].url])
                 
                  
 def write_excel_by_column(row_index, house_list_container, ws, letter):
     house_list_container_index = len(house_list_container) - 1
     # for row_index in range(row_index, len(house_list_container)*len(house_list_container[0])):
     try:
-        row_index = 14
+        row_index = 13
         for page in (0, house_list_container_index):
             for index_house in range(0, len(house_list_container[page])):
                 house = house_list_container[page][index_house]
