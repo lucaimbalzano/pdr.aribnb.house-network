@@ -10,7 +10,7 @@ from openpyxl import Workbook, worksheet, load_workbook
 from os import listdir
 import os
 import openpyxl
-from settings.settings import PREFIX_URL_EXCEL
+from settings import settings
 from console.log.logger import get_logger
 
 logger = get_logger()
@@ -26,7 +26,7 @@ def write_excel_by_column_deprecated(start_cell_column,start_cell_row,  data_to_
                 ws.append([data_to_write[page][i].price])    
             else:
                 print("[DEBUG] - url: "+[data_to_write[page][i].url])
-                ws.append(PREFIX_URL_EXCEL + [data_to_write[page][i].url])
+                ws.append(settings.PREFIX_URL_EXCEL + [data_to_write[page][i].url])
                 
                  
 def write_excel_by_column(row_index, house_list_container, ws, letter):
@@ -45,7 +45,7 @@ def write_excel_by_column(row_index, house_list_container, ws, letter):
                 else:
                     logger.debug("url: " + str(house.url))
                     cell_to_write = letter + str(row_index)
-                    ws[cell_to_write] = PREFIX_URL_EXCEL + house.url
+                    ws[cell_to_write] = settings.PREFIX_URL_EXCEL + house.url
 
     except Exception as e:
         print("write-excel::write_excel_by_column - "+str(e))
@@ -67,14 +67,12 @@ def close_excel(path, wb):
     wb.close()
 
 def write_excel_by_data_retrived(houses_airbnb, letter, wb):
-    path = "C:\\Users\\lucai\\Documents\\Workspaces\\house-network\\pdr.aribnb.house-network\\media\\3_STANDARD_PianoDiRendimentoy.xlsx"
-    wb = openpyxl.load_workbook(path)
+    wb = openpyxl.load_workbook(settings.PATH_EXCEL_REPORT)
     ws = wb['Raccolta_Dati_Airbnb_0']
-
 
     # 1MONTH  1MONTHWEEK 3MONTH  3MONTHWEEK 6MONTH  6MONTHWEEK
     # C14:38  D14:38     E14:38   F14:38    G14:38  H14:38    [X14:76]
-    write_excel_by_column( 13,houses_airbnb,ws, letter )
+    write_excel_by_column(13, houses_airbnb, ws, letter)
 
-    wb.save(path)
+    wb.save(settings.PATH_EXCEL_REPORT)
     wb.close()

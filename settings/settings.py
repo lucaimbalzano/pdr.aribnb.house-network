@@ -7,11 +7,16 @@
 
 VERSION = 'V1.001'
 
+CHROMEDRIVER_PATH = 'C:/Users/lucai/Documents/Utils/SW/WebDriver/106/0.5249.61/chromedriver.exe'
+
+
+
 BASE_URL = 'https://www.airbnb.it/s/'
 
 PREFIX_URL_EXCEL =  '⬆️ LINK BNB: '
 
 PATH_EXCEL = "C:\\Users\\lucai\\Documents\\Workspaces\\house-network\\pdr.aribnb.house-network\\media\\2STANDARD_PianoDiRendimento.xlsx"
+PATH_EXCEL_REPORT = "C:\\Users\\lucai\\Documents\\Workspaces\\house-network\\pdr.aribnb.house-network\\media\\3_STANDARD_PianoDiRendimentoy.xlsx"
 
 #NWSE VALUES
 #MOVE TO NORD

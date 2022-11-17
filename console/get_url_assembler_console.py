@@ -187,11 +187,17 @@ def get_input_console(browser):
     print('example of address: ')
     print('>> Via Ugo Betti 22, Milano, MI Italia')
     print('>> Corso Sano Gottardo 20, Milano, MI Italia')
-    address = input('Enter the address: ')
+    # address = input('Enter the address: ')
+    address = 'Via Remigio Paone 2, Milano MI, Italia'
     print('>> '+address)
     print(' ')
-    adults = input('Enter quantity adults: ')
+    # adults = input('Enter quantity adults: ')
+    adults = '2'
     print('>> '+ adults)
+    print(' ')
+    # max_price_threshold = input('Enter maximum price threshold: ')
+    max_price_threshold = 200
+    print('>> '+ str(max_price_threshold))
     print(' ')
 
     stays = get_input_console_stays_optional()
@@ -209,6 +215,6 @@ def get_input_console(browser):
     lng = response[0]["lon"]
 
     address = get_search_address(browser, address)
-    input_data = InputConsole(address, check_inout_list, adults, lat, lng)
+    input_data = InputConsole(address, check_inout_list, adults, lat, lng, max_price_threshold)
     return input_data
 
