@@ -2,11 +2,6 @@
 #
 # - @lucaimbalzano
 
-
-
-from main import settings
-
-
 list_NWSE = []
 
 def checkin_checkout_link_assembly(checkin_input, checkout_input):
@@ -55,7 +50,9 @@ def moving_map_nwse_calculation(url, list_lat_lng, MOVETO_VALUES_NWSE, checkin_i
     return url_defined + checkin_checkout_link_assembly(checkin_input, checkout_input);
     
 
-def defraction_url_lat_lng(url):
-    list_positions = url.split('search_type=user_map_move&')
+def defraction_url_lat_lng(url, search_type):
+    # search_type=search_query&
+    # search_type=user_map_move&
+    list_positions = url.split(search_type)
     list_position_splitted = list_positions[1].split('&')
     return list_position_splitted

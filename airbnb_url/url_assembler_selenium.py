@@ -12,6 +12,9 @@ from selenium.webdriver.common.by import By
 logger = get_logger()
 page3 =           '&pagination_search=true&cursor=eyJzZWN0aW9uX29mZnNldCI6MiwiaXRlbXNfb2Zmc2V0Ijo0MCwidmVyc2lvbiI6MX0%3D'
 page2 = '&items_offset=40&items_offset=20&cursor=eyJzZWN0aW9uX29mZnNldCI6MiwiaXRlbXNfb2Zmc2V0IjoyMCwidmVyc2lvbiI6MX0%3D'
+# TODO Test
+page4 = 'page4&pagination_search=true&cursor=eyJzZWN0aW9uX29mZnNldCI6MiwiaXRlbXNfb2Zmc2V0Ijo2MCwidmVyc2lvbiI6MX0%3D'
+page5 = '&pagination_search=true&cursor=eyJzZWN0aW9uX29mZnNldCI6MiwiaXRlbXNfb2Zmc2V0Ijo4MCwidmVyc2lvbiI6MX0%3D'
 
 
 
@@ -36,8 +39,18 @@ def scroll_to_footer_paginations(browser):
     browser.execute_script("window.scrollTo(0,12050)")
     time.sleep(3)
 
+def checkIfExistAlertThenCloseIt(browser):
+    try:
+        browser.find_element(By.CLASS_NAME, '_oda838').click()
+    except Exception:
+        pass
+
+
 
 def get_search_address(browser,url):
+
+    checkIfExistAlertThenCloseIt(browser)
+
     time.sleep(2)
     open_searchbox = browser.find_element(By.CLASS_NAME, 'f19g2zq0').click()
     time.sleep(2)
